@@ -22,7 +22,7 @@ class Entity extends MyAnimation {
 		return YPosition=value;
 	}
 
-	public function new (xPosition:Int, yPosition:Int, stage:Stage, imagePath:Array<String>, lastingTime:Int, infinite:Bool) {
+	public function new (xPosition:Int, yPosition:Int, stage:Stage, imagePath:Array<String>, lastingTime:Int, infinite:Bool, start:Bool) {
 
 		// stage = this.stage;
 		XPosition = xPosition;
@@ -31,7 +31,7 @@ class Entity extends MyAnimation {
 		//Skin.y = YPosition;
 		//initialize(xPosition, yPosition, imagePath);
 
-		super (imagePath, lastingTime, infinite);
+		super (imagePath, lastingTime, infinite, start);
 	}
 	/**
 	 * Function called when the entity collide another one

@@ -15,7 +15,7 @@ class Child extends Entity {
 		array.push("assets/ChildMale0-1-0.png");
 		array.push("assets/ChildMale0-2-0.png");
 
-		super(stage.stageWidth, stage.stageHeight - 50, stage, array, 230, true);
+		super(stage.stageWidth, stage.stageHeight - 50, stage, array, 230, true, false);
 		scaleX = 0.3;
 		scaleY = 0.3;
 		this.lane = lane;

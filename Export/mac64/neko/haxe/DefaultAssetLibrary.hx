@@ -38,8 +38,6 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		className.set ("assets/background.jpg", __ASSET__assets_background_jpg);
 		type.set ("assets/background.jpg", Reflect.field (AssetType, "image".toUpperCase ()));
-		className.set ("assets/bam.mp3", __ASSET__assets_bam_mp3);
-		type.set ("assets/bam.mp3", Reflect.field (AssetType, "music".toUpperCase ()));
 		className.set ("assets/ChildMale0-0-0.png", __ASSET__assets_childmale0_0_0_png);
 		type.set ("assets/ChildMale0-0-0.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("assets/ChildMale0-1-0.png", __ASSET__assets_childmale0_1_0_png);
@@ -48,8 +46,30 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/ChildMale0-2-0.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("assets/ChildMale0.png", __ASSET__assets_childmale0_png);
 		type.set ("assets/ChildMale0.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("assets/fouet.ogg", __ASSET__assets_fouet_ogg);
+		type.set ("assets/fouet.ogg", Reflect.field (AssetType, "sound".toUpperCase ()));
 		className.set ("assets/FX.png", __ASSET__assets_fx_png);
 		type.set ("assets/FX.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("assets/music/108604_Ash_Tarrant___What_.mp3", __ASSET__assets_music_108604_ash_tarrant___what__mp3);
+		type.set ("assets/music/108604_Ash_Tarrant___What_.mp3", Reflect.field (AssetType, "music".toUpperCase ()));
+		className.set ("assets/music/111767_Dirge_s_Nutcracker.mp3", __ASSET__assets_music_111767_dirge_s_nutcracker_mp3);
+		type.set ("assets/music/111767_Dirge_s_Nutcracker.mp3", Reflect.field (AssetType, "music".toUpperCase ()));
+		className.set ("assets/music/38352_newgrounds_nikky_.mp3", __ASSET__assets_music_38352_newgrounds_nikky__mp3);
+		type.set ("assets/music/38352_newgrounds_nikky_.mp3", Reflect.field (AssetType, "music".toUpperCase ()));
+		className.set ("assets/music/515215_The-Evil-Nutcracker.mp3", __ASSET__assets_music_515215_the_evil_nutcracker_mp3);
+		type.set ("assets/music/515215_The-Evil-Nutcracker.mp3", Reflect.field (AssetType, "music".toUpperCase ()));
+		className.set ("assets/music/68552_newgrounds_carol_.mp3", __ASSET__assets_music_68552_newgrounds_carol__mp3);
+		type.set ("assets/music/68552_newgrounds_carol_.mp3", Reflect.field (AssetType, "music".toUpperCase ()));
+		className.set ("assets/music/carol_of_the_bells.ogg", __ASSET__assets_music_carol_of_the_bells_ogg);
+		type.set ("assets/music/carol_of_the_bells.ogg", Reflect.field (AssetType, "music".toUpperCase ()));
+		className.set ("assets/music/Evil-Nutcracker.ogg", __ASSET__assets_music_evil_nutcracker_ogg);
+		type.set ("assets/music/Evil-Nutcracker.ogg", Reflect.field (AssetType, "music".toUpperCase ()));
+		className.set ("assets/music/jingle_bells.ogg", __ASSET__assets_music_jingle_bells_ogg);
+		type.set ("assets/music/jingle_bells.ogg", Reflect.field (AssetType, "music".toUpperCase ()));
+		className.set ("assets/music/nightmare_bc.ogg", __ASSET__assets_music_nightmare_bc_ogg);
+		type.set ("assets/music/nightmare_bc.ogg", Reflect.field (AssetType, "music".toUpperCase ()));
+		className.set ("assets/music/Nutcracker1.ogg", __ASSET__assets_music_nutcracker1_ogg);
+		type.set ("assets/music/Nutcracker1.ogg", Reflect.field (AssetType, "music".toUpperCase ()));
 		className.set ("assets/openfl.svg", __ASSET__assets_openfl_svg);
 		type.set ("assets/openfl.svg", Reflect.field (AssetType, "text".toUpperCase ()));
 		className.set ("assets/Santa.png", __ASSET__assets_santa_png);
@@ -98,8 +118,6 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		path.set ("assets/background.jpg", "assets/background.jpg");
 		type.set ("assets/background.jpg", Reflect.field (AssetType, "image".toUpperCase ()));
-		path.set ("assets/bam.mp3", "assets/bam.mp3");
-		type.set ("assets/bam.mp3", Reflect.field (AssetType, "music".toUpperCase ()));
 		path.set ("assets/ChildMale0-0-0.png", "assets/ChildMale0-0-0.png");
 		type.set ("assets/ChildMale0-0-0.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		path.set ("assets/ChildMale0-1-0.png", "assets/ChildMale0-1-0.png");
@@ -108,8 +126,30 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/ChildMale0-2-0.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		path.set ("assets/ChildMale0.png", "assets/ChildMale0.png");
 		type.set ("assets/ChildMale0.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("assets/fouet.ogg", "assets/fouet.ogg");
+		type.set ("assets/fouet.ogg", Reflect.field (AssetType, "sound".toUpperCase ()));
 		path.set ("assets/FX.png", "assets/FX.png");
 		type.set ("assets/FX.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("assets/music/108604_Ash_Tarrant___What_.mp3", "assets/music/108604_Ash_Tarrant___What_.mp3");
+		type.set ("assets/music/108604_Ash_Tarrant___What_.mp3", Reflect.field (AssetType, "music".toUpperCase ()));
+		path.set ("assets/music/111767_Dirge_s_Nutcracker.mp3", "assets/music/111767_Dirge_s_Nutcracker.mp3");
+		type.set ("assets/music/111767_Dirge_s_Nutcracker.mp3", Reflect.field (AssetType, "music".toUpperCase ()));
+		path.set ("assets/music/38352_newgrounds_nikky_.mp3", "assets/music/38352_newgrounds_nikky_.mp3");
+		type.set ("assets/music/38352_newgrounds_nikky_.mp3", Reflect.field (AssetType, "music".toUpperCase ()));
+		path.set ("assets/music/515215_The-Evil-Nutcracker.mp3", "assets/music/515215_The-Evil-Nutcracker.mp3");
+		type.set ("assets/music/515215_The-Evil-Nutcracker.mp3", Reflect.field (AssetType, "music".toUpperCase ()));
+		path.set ("assets/music/68552_newgrounds_carol_.mp3", "assets/music/68552_newgrounds_carol_.mp3");
+		type.set ("assets/music/68552_newgrounds_carol_.mp3", Reflect.field (AssetType, "music".toUpperCase ()));
+		path.set ("assets/music/carol_of_the_bells.ogg", "assets/music/carol_of_the_bells.ogg");
+		type.set ("assets/music/carol_of_the_bells.ogg", Reflect.field (AssetType, "music".toUpperCase ()));
+		path.set ("assets/music/Evil-Nutcracker.ogg", "assets/music/Evil-Nutcracker.ogg");
+		type.set ("assets/music/Evil-Nutcracker.ogg", Reflect.field (AssetType, "music".toUpperCase ()));
+		path.set ("assets/music/jingle_bells.ogg", "assets/music/jingle_bells.ogg");
+		type.set ("assets/music/jingle_bells.ogg", Reflect.field (AssetType, "music".toUpperCase ()));
+		path.set ("assets/music/nightmare_bc.ogg", "assets/music/nightmare_bc.ogg");
+		type.set ("assets/music/nightmare_bc.ogg", Reflect.field (AssetType, "music".toUpperCase ()));
+		path.set ("assets/music/Nutcracker1.ogg", "assets/music/Nutcracker1.ogg");
+		type.set ("assets/music/Nutcracker1.ogg", Reflect.field (AssetType, "music".toUpperCase ()));
 		path.set ("assets/openfl.svg", "assets/openfl.svg");
 		type.set ("assets/openfl.svg", Reflect.field (AssetType, "text".toUpperCase ()));
 		path.set ("assets/Santa.png", "assets/Santa.png");
@@ -594,12 +634,22 @@ class DefaultAssetLibrary extends AssetLibrary {
 #elseif flash
 
 class __ASSET__assets_background_jpg extends flash.display.BitmapData { public function new () { super (0, 0); } }
-class __ASSET__assets_bam_mp3 extends null { }
 class __ASSET__assets_childmale0_0_0_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__assets_childmale0_1_0_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__assets_childmale0_2_0_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__assets_childmale0_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__assets_fouet_ogg extends null { }
 class __ASSET__assets_fx_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__assets_music_108604_ash_tarrant___what__mp3 extends null { }
+class __ASSET__assets_music_111767_dirge_s_nutcracker_mp3 extends null { }
+class __ASSET__assets_music_38352_newgrounds_nikky__mp3 extends null { }
+class __ASSET__assets_music_515215_the_evil_nutcracker_mp3 extends null { }
+class __ASSET__assets_music_68552_newgrounds_carol__mp3 extends null { }
+class __ASSET__assets_music_carol_of_the_bells_ogg extends null { }
+class __ASSET__assets_music_evil_nutcracker_ogg extends null { }
+class __ASSET__assets_music_jingle_bells_ogg extends null { }
+class __ASSET__assets_music_nightmare_bc_ogg extends null { }
+class __ASSET__assets_music_nutcracker1_ogg extends null { }
 class __ASSET__assets_openfl_svg extends null { }
 class __ASSET__assets_santa_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__assets_santa2_0_0_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
@@ -624,6 +674,16 @@ class __ASSET__assets_whipfx_2_3_png extends flash.display.BitmapData { public f
 
 
 #elseif html5
+
+
+
+
+
+
+
+
+
+
 
 
 
