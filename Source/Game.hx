@@ -18,10 +18,9 @@ class Game extends Sprite { //}
 	private var Background:Bitmap;
     private var Title:TextField;
 	private var pn:Sprite;
-	private var Child:Sprite;
 	private var Bam:Sound;
 	private var time:Float;
-	
+	private var entities	: Array<Entity>;
 	
 	public function new () {
 		
@@ -46,17 +45,28 @@ class Game extends Sprite { //}
         Title.selectable = false;
         Title.text = "Ceci est le titre de Game";
 
+		entities = new Array<Entity>();
+		entities.push(new PlayerNoel(stage));
+		entities.push(new Child(stage,0));
+		/*
 		pn.scaleX = 0.3;
 		pn.scaleY = 0.3;
 		pn.x = 15;
 		pn.y = stage.stageHeight - pn.height - 10;
 		
+		
 		Child.x = stage.stageWidth  + 10;
 		Child.y = stage.stageHeight / 2;
-		
+		*/
 		addChild (Background);
-		addChild (pn);
-		addChild(Child);
+		
+		//draw all the entities
+		for (i in 0...entities.length) {
+			addChild(entities[i].getSkin());
+		}
+		
+		//addChild (pn);
+		//addChild(Child);
         addChild (Title);	
 	}
 	
@@ -65,11 +75,12 @@ class Game extends Sprite { //}
 		
 		Background = new Bitmap (Assets.getBitmapData ("assets/background.jpg"));
 		
+		/*
 		pn = new Sprite();
 		pn.addChild(new Bitmap (Assets.getBitmapData ("assets/pn.png")));
-		
-		Child = new Sprite();
-		Child.addChild(new Bitmap (Assets.getBitmapData ("assets/child.png")));
+		*/
+		//Child = new Sprite();
+		//Child.addChild(new Bitmap (Assets.getBitmapData ("assets/child.png")));
 		
 		Title = new TextField ();
 		
@@ -95,7 +106,11 @@ class Game extends Sprite { //}
 	
 	
 	function onPress(event:KeyboardEvent):Void {
+		for (i in 0...entities.length) {
+			entities[i].onPress(event);
+		}
 		switch(event.keyCode) {
+			/*
 			case Keyboard.UP:
 				var min = 0;
 				pn.y -= 10;
@@ -107,7 +122,9 @@ class Game extends Sprite { //}
 			case Keyboard.SPACE:
 				
 				Bam.play();
+				*/
 			default:
+				
 		}
 		
 	}
@@ -117,10 +134,12 @@ class Game extends Sprite { //}
 	 * Event called before each render
 	 * @param	event
 	 */
-	function onEnterFrame(event:Event): Void {
-		
+	function onEnterFrame(event:Event): Void {		
+		for (entity in entities) {
+			entity.update(); //update every entity in the level in each frame
+		}
 		var delta = Lib.getTimer() - time;
-		Child.x -= delta / 1000;
+		//Child.x -= delta / 1000;
 		
 	}
 	
