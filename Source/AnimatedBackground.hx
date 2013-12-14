@@ -75,7 +75,7 @@ class AnimatedBackground {
 	 * @param	stageHeight New height of the stage
 	 */
 	public function resize(stageWidth:Int, stageHeight:Int ) {
-		var scaleY = (stageHeight / initialHeight),
+		var scaleY = (stageHeight * 42 / 100 / initialHeight),
 			scaleX = (stageWidth / initialWidth);
 			
 		for (i in 0...repeatNumber) {

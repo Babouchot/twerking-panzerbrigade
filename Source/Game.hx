@@ -79,13 +79,16 @@ class Game extends Sprite { //}
 		// Background
 		Backgrounds = new Array<AnimatedBackground>();
 		
-		var a = new AnimatedBackground(0, 500, "assets/hills.png");
+		var a = new AnimatedBackground(0, 500, "assets/Sky.png");
 		Backgrounds.push(a);
 		
-		a = new AnimatedBackground(0, 100, "assets/houses.png");
+		a = new AnimatedBackground(0, 100, "assets/Mountains.png");
 		Backgrounds.push(a);
 		
-		a = new AnimatedBackground(0, 10, "assets/track.png");
+		a = new AnimatedBackground(0, 50, "assets/Trees.png");
+		Backgrounds.push(a);
+		
+		a = new AnimatedBackground(0, 10, "assets/Village.png");
 		Backgrounds.push(a);
 		
 	}
