@@ -36,6 +36,7 @@ class Game extends Sprite {
 		
 		sound = new SoundManager();
 		sound.playMusic("nightmare_bc");
+		sound.loopSound(sound.grelots, "grelots");
 
 		resize (stage.stageWidth, stage.stageHeight);
 		stage.addEventListener (Event.RESIZE, stage_onResize);

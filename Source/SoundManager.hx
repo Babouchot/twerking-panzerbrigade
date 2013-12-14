@@ -18,10 +18,13 @@ class SoundManager {
 
 
 	private var music:Sound;
+	private var musicPaused:Bool;
 	private var musicChannel:SoundChannel;
 	private var pausePostion:Float;
 
 	private var musicsMap:Map<String, String>;
+
+	private var loopedSounds:Map<String, SoundChannel>;
 
 
 	public function new () {
@@ -39,6 +42,8 @@ class SoundManager {
 												"nightmare_bc" => "assets/music/nightmare_bc.ogg",
 												"nutcracker" => "assets/music/Nutcracker1.ogg"];
 
+		musicPaused = true;
+		loopedSounds = new Map <String, SoundChannel>();
 	}
 
 
@@ -46,17 +51,20 @@ class SoundManager {
 		music = new Sound (new URLRequest(musicsMap.get(name)));
 		musicChannel = music.play();
 		musicChannel.addEventListener(Event.SOUND_COMPLETE, onPlaybackComplete);
+		musicPaused = false;
 	}
 
 	public function play() : Void {
 		if (pausePostion != 0) {
 			musicChannel = music.play(pausePostion);
+			musicPaused = false;
 		}
 	}
 
 	public function pause() : Void {
 		pausePostion = musicChannel.position;
 		musicChannel.stop();
+		musicPaused = true;
 	}
 
 
@@ -65,9 +73,36 @@ class SoundManager {
 		pausePostion = 0;
 	}
 
+	public function playPause () {
+		if (musicPaused) {
+			play();
+		}
+		else {
+			pause();
+		}
+	}
+
 
 	private function onPlaybackComplete(event:Event) : Void {
 			musicChannel = music.play(0);
+	}
+
+
+	public function loopSound (sound:Sound, id:String) {
+		// TODO pas proooooooooopre !
+		var soundChannel:SoundChannel = sound.play(0, 9999);
+		// soundChannel.addEventListener(Event.SOUND_COMPLETE, onLoopSoundComplete);
+		loopedSounds.set(id, soundChannel);
+	}
+
+	// private function onLoopSoundComplete(event:Event) : Void {
+	// 	var sound:Sound = event.currentTarget;
+	// 	sound.play();
+	// }
+
+	public function unLoopSound (id: String) {
+		loopedSounds.get(id).stop();
+		loopedSounds.remove(id);
 	}
 
 }
