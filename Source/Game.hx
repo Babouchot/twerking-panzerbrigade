@@ -15,12 +15,12 @@ import openfl.Assets;
 
 class Game extends Sprite { //}
 
-	private var Background:Bitmap;
+	private var Backgrounds:Array<AnimatedBackground>;
     private var Title:TextField;
 	private var pn:Sprite;
 	private var Child:Sprite;
 	private var Bam:Sound;
-	private var time:Float;
+	private var time:Int;
 	
 	
 	public function new () {
@@ -54,7 +54,8 @@ class Game extends Sprite { //}
 		Child.x = stage.stageWidth  + 10;
 		Child.y = stage.stageHeight / 2;
 		
-		addChild (Background);
+		for (b in Backgrounds) b.addAsChild(stage);
+		
 		addChild (pn);
 		addChild(Child);
         addChild (Title);	
@@ -62,9 +63,7 @@ class Game extends Sprite { //}
 	
 	
 	private function initialize ():Void {
-		
-		Background = new Bitmap (Assets.getBitmapData ("assets/background.jpg"));
-		
+				
 		pn = new Sprite();
 		pn.addChild(new Bitmap (Assets.getBitmapData ("assets/pn.png")));
 		
@@ -77,12 +76,24 @@ class Game extends Sprite { //}
 		
 		time = 	Lib.getTimer();
 		
+		// Background
+		Backgrounds = new Array<AnimatedBackground>();
+		
+		var a = new AnimatedBackground(0, 500, "assets/hills.png");
+		Backgrounds.push(a);
+		
+		a = new AnimatedBackground(Std.int(a.getHeight() + a.getY()), 100, "assets/houses.png");
+		Backgrounds.push(a);
+		
+		a = new AnimatedBackground(Std.int(a.getHeight() + a.getY()), 10, "assets/track.png");
+		Backgrounds.push(a);
+		
 	}
 
 	private function resize (newWidth:Int, newHeight:Int):Void {
 		
-		Background.width = newWidth;
-		Background.height = newHeight;
+		//Background.width = newWidth;
+		//Background.height = newHeight;
 		
 	}
 	
@@ -120,7 +131,10 @@ class Game extends Sprite { //}
 	function onEnterFrame(event:Event): Void {
 		
 		var delta = Lib.getTimer() - time;
+		time = Lib.getTimer();
 		Child.x -= delta / 1000;
+		
+		for (b in Backgrounds) b.move(delta);
 		
 	}
 	
