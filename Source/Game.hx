@@ -13,7 +13,7 @@ import flash.display.Stage;
 
 import openfl.Assets;
 
-class Game extends Sprite { //}
+class Game extends Sprite {
 
 	private var Backgrounds:Array<AnimatedBackground>;
     private var Title:TextField;
@@ -79,16 +79,19 @@ class Game extends Sprite { //}
 		// Background
 		Backgrounds = new Array<AnimatedBackground>();
 		
-		var a = new AnimatedBackground(0, 500, "assets/Sky.png");
+		var a = new AnimatedBackground(0, 500, "assets/Sky.png", .42, 0);
 		Backgrounds.push(a);
 		
-		a = new AnimatedBackground(0, 100, "assets/Mountains.png");
+		a = new AnimatedBackground(0, 100, "assets/Mountains.png", .42, 0);
 		Backgrounds.push(a);
 		
-		a = new AnimatedBackground(0, 50, "assets/Trees.png");
+		a = new AnimatedBackground(0, 50, "assets/Trees.png", .42, 0);
 		Backgrounds.push(a);
 		
-		a = new AnimatedBackground(0, 10, "assets/Village.png");
+		a = new AnimatedBackground(0, 10, "assets/Village.png", .42, 0);
+		Backgrounds.push(a);
+		
+		a = new AnimatedBackground(a.getHeight(), 10, "assets/Ground.png", .58, .42 /* Depends on Image's Heigth*/);
 		Backgrounds.push(a);
 		
 	}
