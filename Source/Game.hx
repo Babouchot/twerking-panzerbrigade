@@ -116,7 +116,6 @@ class Game extends Sprite { //}
 				pn.y += 10;
 				if (pn.y > max) pn.y = max;
 			case Keyboard.SPACE:
-				
 				Bam.play();
 			default:
 		}
@@ -129,10 +128,13 @@ class Game extends Sprite { //}
 	 * @param	event
 	 */
 	function onEnterFrame(event:Event): Void {
-		
+		// Time difference with last frame rendering
 		var delta = Lib.getTimer() - time;
+		// Save actual time
 		time = Lib.getTimer();
-		Child.x -= delta / 1000;
+		
+		
+		Child.x -= delta / 6;
 		
 		for (b in Backgrounds) b.move(delta);
 		

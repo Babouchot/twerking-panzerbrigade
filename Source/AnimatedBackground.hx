@@ -38,7 +38,7 @@ class AnimatedBackground {
 	}
 	
 	public function move(delta:Int) {
-		var deltaX = delta / 1000 / z;
+		var deltaX = delta / z;
 		sprites[0].x -= deltaX;
 		for (i in 1...repeatNumber)
 			sprites[i].x = sprites[0].x + i * sprites[0].width;
