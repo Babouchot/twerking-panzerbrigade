@@ -7,16 +7,24 @@ import openfl.Assets;
 
 class AnimatedBackground {
 
+	public var y:Float;
 	public var z:Int;
-	private var repeatNumber:Int;
 	public var sprites:Array<Bitmap>;
+	
+	private var repeatNumber:Int;
 	private var initialWidth:Float;
 	private var initialHeight:Float;
+	private var initialScaleY:Float;
+	private var initialScaleOffsetY:Float;
 	
-	public function new(y:Int, z:Int, file:String) {
+	public function new(y:Float, z:Int, file:String, scaleY:Float, scaleOffsetY:Float) {
 		this.repeatNumber = 2;
+		this.y = y;
 		this.z = z;
+		
 		this.sprites = new Array<Bitmap>();
+		this.initialScaleY = scaleY;
+		this.initialScaleOffsetY = scaleOffsetY;
 		
 		var image:Bitmap;
 		
@@ -75,12 +83,16 @@ class AnimatedBackground {
 	 * @param	stageHeight New height of the stage
 	 */
 	public function resize(stageWidth:Int, stageHeight:Int ) {
-		var scaleY = (stageHeight * 42 / 100 / initialHeight),
+		var scaleY = (stageHeight * initialScaleY / initialHeight),
 			scaleX = (stageWidth / initialWidth);
 			
 		for (i in 0...repeatNumber) {
 			sprites[i].scaleX = scaleX;
 			sprites[i].scaleY = scaleY;
+			
+			// Y position rescaling
+			sprites[i].y = initialScaleOffsetY * stageHeight;
+			
 			// Prevent split between two images
 			if(i > 0) sprites[i].x = sprites[0].x + i * sprites[0].width;
 		}
