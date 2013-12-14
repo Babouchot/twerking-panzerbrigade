@@ -64,17 +64,17 @@ class PlayerNoel extends Entity
 
 		animatedWhip = new MyAnimation(array2, 55, true, true);
 
-		scaleX = 0.3;
-		scaleY = 0.3;
 		animatedWhip.scaleX = 0.3;
 		animatedWhip.scaleY = 0.3;
-		current_frame = 0;
-		lane = 0;
-		speed = 5;
 
 		stage.addChild(animatedWhip);
 		animatedWhip.start();
 		super(15, stage.stageHeight - 50, stage, array, 140, true, false);
+		scaleX = 0.3;
+		scaleY = 0.3;
+		current_frame = 0;
+		lane = 0;
+		speed = 5;
 	}
 	
 	override function update() : Void{

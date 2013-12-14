@@ -23,6 +23,7 @@ class MyAnimation extends Sprite {
 	private var inf:Bool;
 	private var pause:Bool;
 	private var first:Bool;
+	//private var mstage:Stage;
 
 	public function new (paths:Array<String>, time:Int, infinite:Bool, firstImageStop:Bool) {
 		
@@ -31,6 +32,7 @@ class MyAnimation extends Sprite {
 		actualImage = 0;
 		inf = infinite;
 		images = new Array<Bitmap>();
+		//mstage=Lib.current.stage;
 		first = firstImageStop;
 		if(firstImageStop)
 			pause = true;

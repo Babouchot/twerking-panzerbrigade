@@ -38,6 +38,12 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		className.set ("assets/background.jpg", __ASSET__assets_background_jpg);
 		type.set ("assets/background.jpg", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("assets/Boom-0-0.png", __ASSET__assets_boom_0_0_png);
+		type.set ("assets/Boom-0-0.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("assets/Boom-1-0.png", __ASSET__assets_boom_1_0_png);
+		type.set ("assets/Boom-1-0.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("assets/Boom-2-0.png", __ASSET__assets_boom_2_0_png);
+		type.set ("assets/Boom-2-0.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("assets/ChildMale0-0-0.png", __ASSET__assets_childmale0_0_0_png);
 		type.set ("assets/ChildMale0-0-0.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("assets/ChildMale0-1-0.png", __ASSET__assets_childmale0_1_0_png);
@@ -48,6 +54,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/ChildMale0.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("assets/FX.png", __ASSET__assets_fx_png);
 		type.set ("assets/FX.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("assets/Ground.png", __ASSET__assets_ground_png);
+		type.set ("assets/Ground.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("assets/Mountains.png", __ASSET__assets_mountains_png);
+		type.set ("assets/Mountains.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("assets/music/108604_Ash_Tarrant___What_.mp3", __ASSET__assets_music_108604_ash_tarrant___what__mp3);
 		type.set ("assets/music/108604_Ash_Tarrant___What_.mp3", Reflect.field (AssetType, "music".toUpperCase ()));
 		className.set ("assets/music/111767_Dirge_s_Nutcracker.mp3", __ASSET__assets_music_111767_dirge_s_nutcracker_mp3);
@@ -80,6 +90,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/Santa2-2-0.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("assets/Santa2-3-0.png", __ASSET__assets_santa2_3_0_png);
 		type.set ("assets/Santa2-3-0.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("assets/Sky.png", __ASSET__assets_sky_png);
+		type.set ("assets/Sky.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("assets/Sleigh-0-0.png", __ASSET__assets_sleigh_0_0_png);
 		type.set ("assets/Sleigh-0-0.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("assets/Sleigh-1-0.png", __ASSET__assets_sleigh_1_0_png);
@@ -90,6 +102,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/Sleigh-3-0.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("assets/Sleigh.png", __ASSET__assets_sleigh_png);
 		type.set ("assets/Sleigh.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("assets/sound/elec.ogg", __ASSET__assets_sound_elec_ogg);
+		type.set ("assets/sound/elec.ogg", Reflect.field (AssetType, "sound".toUpperCase ()));
 		className.set ("assets/sound/explosion.ogg", __ASSET__assets_sound_explosion_ogg);
 		type.set ("assets/sound/explosion.ogg", Reflect.field (AssetType, "sound".toUpperCase ()));
 		className.set ("assets/sound/fouet.ogg", __ASSET__assets_sound_fouet_ogg);
@@ -100,6 +114,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/sound/grelots_beginning.ogg", Reflect.field (AssetType, "sound".toUpperCase ()));
 		className.set ("assets/sound/lutins.ogg", __ASSET__assets_sound_lutins_ogg);
 		type.set ("assets/sound/lutins.ogg", Reflect.field (AssetType, "sound".toUpperCase ()));
+		className.set ("assets/Trees.png", __ASSET__assets_trees_png);
+		type.set ("assets/Trees.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("assets/Village.png", __ASSET__assets_village_png);
+		type.set ("assets/Village.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("assets/WhipFX-0-1.png", __ASSET__assets_whipfx_0_1_png);
 		type.set ("assets/WhipFX-0-1.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("assets/WhipFX-0-2.png", __ASSET__assets_whipfx_0_2_png);
@@ -126,6 +144,12 @@ class DefaultAssetLibrary extends AssetLibrary {
 		
 		path.set ("assets/background.jpg", "assets/background.jpg");
 		type.set ("assets/background.jpg", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("assets/Boom-0-0.png", "assets/Boom-0-0.png");
+		type.set ("assets/Boom-0-0.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("assets/Boom-1-0.png", "assets/Boom-1-0.png");
+		type.set ("assets/Boom-1-0.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("assets/Boom-2-0.png", "assets/Boom-2-0.png");
+		type.set ("assets/Boom-2-0.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		path.set ("assets/ChildMale0-0-0.png", "assets/ChildMale0-0-0.png");
 		type.set ("assets/ChildMale0-0-0.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		path.set ("assets/ChildMale0-1-0.png", "assets/ChildMale0-1-0.png");
@@ -136,6 +160,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/ChildMale0.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		path.set ("assets/FX.png", "assets/FX.png");
 		type.set ("assets/FX.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("assets/Ground.png", "assets/Ground.png");
+		type.set ("assets/Ground.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("assets/Mountains.png", "assets/Mountains.png");
+		type.set ("assets/Mountains.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		path.set ("assets/music/108604_Ash_Tarrant___What_.mp3", "assets/music/108604_Ash_Tarrant___What_.mp3");
 		type.set ("assets/music/108604_Ash_Tarrant___What_.mp3", Reflect.field (AssetType, "music".toUpperCase ()));
 		path.set ("assets/music/111767_Dirge_s_Nutcracker.mp3", "assets/music/111767_Dirge_s_Nutcracker.mp3");
@@ -168,6 +196,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/Santa2-2-0.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		path.set ("assets/Santa2-3-0.png", "assets/Santa2-3-0.png");
 		type.set ("assets/Santa2-3-0.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("assets/Sky.png", "assets/Sky.png");
+		type.set ("assets/Sky.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		path.set ("assets/Sleigh-0-0.png", "assets/Sleigh-0-0.png");
 		type.set ("assets/Sleigh-0-0.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		path.set ("assets/Sleigh-1-0.png", "assets/Sleigh-1-0.png");
@@ -178,6 +208,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/Sleigh-3-0.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		path.set ("assets/Sleigh.png", "assets/Sleigh.png");
 		type.set ("assets/Sleigh.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("assets/sound/elec.ogg", "assets/sound/elec.ogg");
+		type.set ("assets/sound/elec.ogg", Reflect.field (AssetType, "sound".toUpperCase ()));
 		path.set ("assets/sound/explosion.ogg", "assets/sound/explosion.ogg");
 		type.set ("assets/sound/explosion.ogg", Reflect.field (AssetType, "sound".toUpperCase ()));
 		path.set ("assets/sound/fouet.ogg", "assets/sound/fouet.ogg");
@@ -188,6 +220,10 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/sound/grelots_beginning.ogg", Reflect.field (AssetType, "sound".toUpperCase ()));
 		path.set ("assets/sound/lutins.ogg", "assets/sound/lutins.ogg");
 		type.set ("assets/sound/lutins.ogg", Reflect.field (AssetType, "sound".toUpperCase ()));
+		path.set ("assets/Trees.png", "assets/Trees.png");
+		type.set ("assets/Trees.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("assets/Village.png", "assets/Village.png");
+		type.set ("assets/Village.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		path.set ("assets/WhipFX-0-1.png", "assets/WhipFX-0-1.png");
 		type.set ("assets/WhipFX-0-1.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		path.set ("assets/WhipFX-0-2.png", "assets/WhipFX-0-2.png");
@@ -650,11 +686,16 @@ class DefaultAssetLibrary extends AssetLibrary {
 #elseif flash
 
 class __ASSET__assets_background_jpg extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__assets_boom_0_0_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__assets_boom_1_0_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__assets_boom_2_0_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__assets_childmale0_0_0_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__assets_childmale0_1_0_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__assets_childmale0_2_0_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__assets_childmale0_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__assets_fx_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__assets_ground_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__assets_mountains_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__assets_music_108604_ash_tarrant___what__mp3 extends null { }
 class __ASSET__assets_music_111767_dirge_s_nutcracker_mp3 extends null { }
 class __ASSET__assets_music_38352_newgrounds_nikky__mp3 extends null { }
@@ -671,16 +712,20 @@ class __ASSET__assets_santa2_0_0_png extends flash.display.BitmapData { public f
 class __ASSET__assets_santa2_1_0_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__assets_santa2_2_0_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__assets_santa2_3_0_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__assets_sky_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__assets_sleigh_0_0_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__assets_sleigh_1_0_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__assets_sleigh_2_0_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__assets_sleigh_3_0_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__assets_sleigh_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__assets_sound_elec_ogg extends null { }
 class __ASSET__assets_sound_explosion_ogg extends null { }
 class __ASSET__assets_sound_fouet_ogg extends null { }
 class __ASSET__assets_sound_grelots_ogg extends null { }
 class __ASSET__assets_sound_grelots_beginning_ogg extends null { }
 class __ASSET__assets_sound_lutins_ogg extends null { }
+class __ASSET__assets_trees_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__assets_village_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__assets_whipfx_0_1_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__assets_whipfx_0_2_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__assets_whipfx_0_3_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
@@ -694,6 +739,15 @@ class __ASSET__assets_whipfx_2_3_png extends flash.display.BitmapData { public f
 
 
 #elseif html5
+
+
+
+
+
+
+
+
+
 
 
 

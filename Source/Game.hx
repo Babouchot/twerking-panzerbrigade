@@ -13,9 +13,9 @@ import flash.display.Stage;
 
 import openfl.Assets;
 
-class Game extends Sprite { //}
+class Game extends Sprite {
 
-	private var Background:Bitmap;
+	private var Backgrounds:Array<AnimatedBackground>;
     private var Title:TextField;
 	private var speedField:TextField;
 	private var pn:Sprite;
@@ -24,7 +24,6 @@ class Game extends Sprite { //}
 	private var whipEffect:MyAnimation;
 	private var entities	: Array<Entity>;
 	private var player : PlayerNoel;
-
 	
 	public function new () {
 		
@@ -48,38 +47,36 @@ class Game extends Sprite { //}
         Title.y = 12;
         Title.selectable = false;
         Title.text = "Ceci est le titre de Game";
-
+		
+		for (b in Backgrounds) b.addAsChild(stage);
+		
 		entities = new Array<Entity>();
 		player = new PlayerNoel(stage);
-		entities.push(player);
 		entities.push(new Child(stage,0));
-		addChild (Background);
-		
 		//draw all the entities
 		for (i in 0...entities.length) {
 			addChild(entities[i]);
 			entities[i].start();
 		}
-		
-        addChild (Title);
+
+        stage.addChild (Title);
 		speedField.x = stage.stageWidth/2;
         speedField.width = 200;
         speedField.y = 100;
         speedField.selectable = false;
         speedField.text = Std.string(player.speed);
-		addChild(speedField);
-        addChild (whipEffect);
+		stage.addChild(speedField);
+        stage.addChild (whipEffect);
+        stage.addChild(player);
+        entities.push(player);
+        player.start();
 	}
 	
 	
 	private function initialize ():Void {
 		
-		Background = new Bitmap (Assets.getBitmapData ("assets/background.jpg"));
-		
 		Title = new TextField ();
 		speedField = new TextField();
-		
-		Bam = Assets.getSound("assets/bam.mp3");
 		
 		time = Lib.getTimer();
 
@@ -89,25 +86,40 @@ class Game extends Sprite { //}
 		array.push("assets/WhipFX-2-1.png");
 
 		whipEffect = new MyAnimation (array, 400, false, false);
+
+		time = 	Lib.getTimer();
+		
+		// Background
+		Backgrounds = new Array<AnimatedBackground>();
+		
+		var a = new AnimatedBackground(0, 500, "assets/Sky.png", .42, 0);
+		Backgrounds.push(a);
+		
+		a = new AnimatedBackground(0, 100, "assets/Mountains.png", .42, 0);
+		Backgrounds.push(a);
+		
+		a = new AnimatedBackground(0, 50, "assets/Trees.png", .42, 0);
+		Backgrounds.push(a);
+		
+		a = new AnimatedBackground(0, 10, "assets/Village.png", .42, 0);
+		Backgrounds.push(a);
+		
+		a = new AnimatedBackground(a.getHeight(), 10, "assets/Ground.png", .58, .42 /* Depends on Image's Heigth*/);
+		Backgrounds.push(a);
 	}
 
 	private function resize (newWidth:Int, newHeight:Int):Void {
-		Background.width = newWidth;
-		Background.height = newHeight;
+		for ( b in Backgrounds) b.resize (newWidth, newHeight);
 	}
-	
-	
+
 	private function stage_onResize (event:Event):Void {
 		resize (stage.stageWidth, stage.stageHeight);
 	}
-	
-	
-	function onPress(event:KeyboardEvent):Void {
+
+	private function onPress(event:KeyboardEvent):Void {
+
 		for (i in 0...entities.length) {
 			entities[i].onPress(event);
-		}
-		switch(event.keyCode) {
-			default:
 		}
 		
 	}
@@ -121,7 +133,7 @@ class Game extends Sprite { //}
 
 		
 		var delta = Lib.getTimer() - time;
-
+		time = Lib.getTimer();
 		for (entity in entities) {
 			entity.update(); //update every entity in the level in each frame
 		}
@@ -132,14 +144,16 @@ class Game extends Sprite { //}
 		if (Std.random(90) % 5 == 0) {
 			var child = new Child(stage, Std.random(3));
 			entities.push(child);
-			addChild(child);
+			stage.addChild(child);
 			child.start();
 		}
 		//Remove the child off the screen
-		if (entities[1].x < -100) {
-			removeChild(entities[1]);
-			entities.splice(1, 1);
+		if (entities[0].x < -100) {
+			removeChild(entities[0]);
+			entities.splice(0, 1);
 		}
+
+		for (b in Backgrounds) b.move(delta, 15/* TODO SPEED SANTA CLAUS*/);
 	}
 	
 }
