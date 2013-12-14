@@ -56,14 +56,14 @@ class Game extends Sprite { //}
 		
 		for (b in Backgrounds) b.addAsChild(stage);
 		
-		addChild (pn);
-		addChild(Child);
-        addChild (Title);	
+		stage.addChild (pn);
+		stage.addChild (Child);
+        stage.addChild (Title);	
 	}
 	
 	
 	private function initialize ():Void {
-				
+		
 		pn = new Sprite();
 		pn.addChild(new Bitmap (Assets.getBitmapData ("assets/pn.png")));
 		
@@ -82,30 +82,23 @@ class Game extends Sprite { //}
 		var a = new AnimatedBackground(0, 500, "assets/hills.png");
 		Backgrounds.push(a);
 		
-		a = new AnimatedBackground(Std.int(a.getHeight() + a.getY()), 100, "assets/houses.png");
+		a = new AnimatedBackground(0, 100, "assets/houses.png");
 		Backgrounds.push(a);
 		
-		a = new AnimatedBackground(Std.int(a.getHeight() + a.getY()), 10, "assets/track.png");
+		a = new AnimatedBackground(0, 10, "assets/track.png");
 		Backgrounds.push(a);
 		
 	}
 
-	private function resize (newWidth:Int, newHeight:Int):Void {
-		
-		//Background.width = newWidth;
-		//Background.height = newHeight;
-		
+	private function resize (stageWidth:Int, stageHeight:Int) {
+		for ( b in Backgrounds) b.resize (stageWidth, stageHeight);
 	}
-	
-	
 	private function stage_onResize (event:Event):Void {
-		
 		resize (stage.stageWidth, stage.stageHeight);
-		
 	}
 	
 	
-	function onPress(event:KeyboardEvent):Void {
+	private function onPress(event:KeyboardEvent):Void {
 		switch(event.keyCode) {
 			case Keyboard.UP:
 				var min = 0;
@@ -127,16 +120,15 @@ class Game extends Sprite { //}
 	 * Event called before each render
 	 * @param	event
 	 */
-	function onEnterFrame(event:Event): Void {
+	private function onEnterFrame(event:Event): Void {
 		// Time difference with last frame rendering
 		var delta = Lib.getTimer() - time;
 		// Save actual time
 		time = Lib.getTimer();
 		
-		
 		Child.x -= delta / 6;
 		
-		for (b in Backgrounds) b.move(delta);
+		for (b in Backgrounds) b.move(delta, 15/* TODO SPEED SANTA CLAUS*/);
 		
 	}
 	
