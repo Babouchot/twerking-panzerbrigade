@@ -9,6 +9,7 @@ class Child extends Entity {
     private var lane(default, set):Int; // Lane number the character is in
 	public var speed:Int;
 
+
 	public function new (stage:Stage, lane:Int) {
 		var array:Array<String> = new Array<String>();
 		array.push("assets/ChildMale0-0-0.png");
@@ -56,5 +57,6 @@ class Child extends Entity {
 		// TODO 
 		XPosition -= speed;
 	}
+	
 	
 }

@@ -24,6 +24,7 @@ class Game extends Sprite { //}
 	private var whipEffect:MyAnimation;
 	private var entities	: Array<Entity>;
 	private var player : PlayerNoel;
+
 	
 	public function new () {
 		
@@ -117,6 +118,7 @@ class Game extends Sprite { //}
 	 * @param	event
 	 */
 	function onEnterFrame(event:Event): Void {		
+
 		
 		var delta = Lib.getTimer() - time;
 
@@ -126,7 +128,6 @@ class Game extends Sprite { //}
 		speedField.text = Std.string(player.speed); //update the speed textfield with the new player speed 
 
 		whipEffect.update();
-
 		//ChildGenerator
 		if (Std.random(90) % 5 == 0) {
 			var child = new Child(stage, Std.random(3));
@@ -135,7 +136,7 @@ class Game extends Sprite { //}
 			child.start();
 		}
 		//Remove the child off the screen
-		if (entities[1].x < 0) {
+		if (entities[1].x < -100) {
 			removeChild(entities[1]);
 			entities.splice(1, 1);
 		}

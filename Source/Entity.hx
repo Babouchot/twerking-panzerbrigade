@@ -1,4 +1,5 @@
 import flash.display.Stage;
+
 import flash.display.Bitmap;
 
 import flash.events.KeyboardEvent;
@@ -23,7 +24,6 @@ class Entity extends MyAnimation {
 	}
 
 	public function new (xPosition:Int, yPosition:Int, stage:Stage, imagePath:Array<String>, lastingTime:Int, infinite:Bool, start:Bool) {
-
 		// stage = this.stage;
 		XPosition = xPosition;
 		YPosition = yPosition;
@@ -36,7 +36,9 @@ class Entity extends MyAnimation {
 	/**
 	 * Function called when the entity collide another one
 	 */
+
 	public function onCollision () : Void{
+
 
 	}
 	

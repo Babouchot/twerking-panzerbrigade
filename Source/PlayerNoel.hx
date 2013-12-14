@@ -40,6 +40,7 @@ class PlayerNoel extends Entity
 				animatedWhip.scaleX = 0.2;
 				animatedWhip.scaleY = 0.2;
 
+
 		}
 		//YPosition = value * 100 + 50;
 		
@@ -48,6 +49,7 @@ class PlayerNoel extends Entity
 	
 	public function new(stage:Stage) 
 	{
+
 		var array:Array<String> = new Array<String>();
 		array.push("assets/Sleigh-0-0.png");
 		array.push("assets/Sleigh-1-0.png");
