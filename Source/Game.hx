@@ -13,14 +13,15 @@ import flash.display.Stage;
 
 import openfl.Assets;
 
-class Game extends Sprite { //}
+class Game extends Sprite {
 
 	private var Background:Bitmap;
     private var Title:TextField;
 	private var pn:Sprite;
 	private var Child:Sprite;
 	private var Bam:Sound;
-	private var time:Float;
+	private var time:Int;
+	private var whipEffect:Whip;
 	
 	
 	public function new () {
@@ -56,8 +57,9 @@ class Game extends Sprite { //}
 		
 		addChild (Background);
 		addChild (pn);
-		addChild(Child);
-        addChild (Title);	
+		addChild (Child);
+        addChild (Title);
+        addChild (whipEffect);
 	}
 	
 	
@@ -76,7 +78,8 @@ class Game extends Sprite { //}
 		Bam = Assets.getSound("assets/bam.mp3");
 		
 		time = 	Lib.getTimer();
-		
+
+		whipEffect = new Whip ();
 	}
 
 	private function resize (newWidth:Int, newHeight:Int):Void {
@@ -105,8 +108,8 @@ class Game extends Sprite { //}
 				pn.y += 10;
 				if (pn.y > max) pn.y = max;
 			case Keyboard.SPACE:
-				
 				Bam.play();
+				whipEffect.attack(1, 10, 10);
 			default:
 		}
 		
@@ -119,9 +122,9 @@ class Game extends Sprite { //}
 	 */
 	function onEnterFrame(event:Event): Void {
 		
-		var delta = Lib.getTimer() - time;
+		var delta:Int = Lib.getTimer() - time;
 		Child.x -= delta / 1000;
-		
+		whipEffect.updateMe(delta);
 	}
 	
 }
