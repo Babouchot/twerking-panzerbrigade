@@ -40,6 +40,12 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/background.jpg", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("assets/bam.mp3", __ASSET__assets_bam_mp3);
 		type.set ("assets/bam.mp3", Reflect.field (AssetType, "music".toUpperCase ()));
+		className.set ("assets/ChildMale0-0-0.png", __ASSET__assets_childmale0_0_0_png);
+		type.set ("assets/ChildMale0-0-0.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("assets/ChildMale0-1-0.png", __ASSET__assets_childmale0_1_0_png);
+		type.set ("assets/ChildMale0-1-0.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("assets/ChildMale0-2-0.png", __ASSET__assets_childmale0_2_0_png);
+		type.set ("assets/ChildMale0-2-0.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("assets/ChildMale0.png", __ASSET__assets_childmale0_png);
 		type.set ("assets/ChildMale0.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("assets/FX.png", __ASSET__assets_fx_png);
@@ -94,6 +100,12 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/background.jpg", Reflect.field (AssetType, "image".toUpperCase ()));
 		path.set ("assets/bam.mp3", "assets/bam.mp3");
 		type.set ("assets/bam.mp3", Reflect.field (AssetType, "music".toUpperCase ()));
+		path.set ("assets/ChildMale0-0-0.png", "assets/ChildMale0-0-0.png");
+		type.set ("assets/ChildMale0-0-0.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("assets/ChildMale0-1-0.png", "assets/ChildMale0-1-0.png");
+		type.set ("assets/ChildMale0-1-0.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("assets/ChildMale0-2-0.png", "assets/ChildMale0-2-0.png");
+		type.set ("assets/ChildMale0-2-0.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		path.set ("assets/ChildMale0.png", "assets/ChildMale0.png");
 		type.set ("assets/ChildMale0.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		path.set ("assets/FX.png", "assets/FX.png");
@@ -583,6 +595,9 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 class __ASSET__assets_background_jpg extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__assets_bam_mp3 extends null { }
+class __ASSET__assets_childmale0_0_0_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__assets_childmale0_1_0_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__assets_childmale0_2_0_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__assets_childmale0_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__assets_fx_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__assets_openfl_svg extends null { }
@@ -609,6 +624,9 @@ class __ASSET__assets_whipfx_2_3_png extends flash.display.BitmapData { public f
 
 
 #elseif html5
+
+
+
 
 
 

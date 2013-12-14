@@ -13,7 +13,7 @@ class Child extends Entity {
 		var array:Array<String> = new Array<String>();
 		array.push("assets/ChildMale0-0-0.png");
 		array.push("assets/ChildMale0-1-0.png");
-		array.push("assets/Childmale0-2-0.png");
+		array.push("assets/ChildMale0-2-0.png");
 
 		super(stage.stageWidth, stage.stageHeight - 50, stage, array, 230, true);
 		scaleX = 0.3;

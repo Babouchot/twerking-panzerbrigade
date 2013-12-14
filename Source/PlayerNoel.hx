@@ -38,7 +38,7 @@ class PlayerNoel extends Entity
 		array.push("assets/Sleigh-1-0.png");
 		array.push("assets/Sleigh-2-0.png");
 		array.push("assets/Sleigh-3-0.png");
-		super(15, stage.stageHeight - 50, stage, array, 25, true);
+		super(15, stage.stageHeight - 50, stage, array, 160, true);
 		scaleX = 0.3;
 		scaleY = 0.3;
 		//stage.addEventListener (KeyboardEvent.KEY_DOWN, onPress);
