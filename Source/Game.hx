@@ -21,7 +21,8 @@ class Game extends Sprite {
 	private var Child:Sprite;
 	private var Bam:Sound;
 	private var time:Int;
-	private var whipEffect:Whip;
+	private var lastTime:Int;
+	private var whipEffect:MyAnimation;
 	
 	
 	public function new () {
@@ -60,6 +61,7 @@ class Game extends Sprite {
 		addChild (Child);
         addChild (Title);
         addChild (whipEffect);
+        whipEffect.start();
 	}
 	
 	
@@ -68,18 +70,24 @@ class Game extends Sprite {
 		Background = new Bitmap (Assets.getBitmapData ("assets/background.jpg"));
 		
 		pn = new Sprite();
-		pn.addChild(new Bitmap (Assets.getBitmapData ("assets/pn.png")));
+		pn.addChild(new Bitmap (Assets.getBitmapData ("assets/Santa.png")));
 		
 		Child = new Sprite();
-		Child.addChild(new Bitmap (Assets.getBitmapData ("assets/child.png")));
+		Child.addChild(new Bitmap (Assets.getBitmapData ("assets/ChildMale0.png")));
 		
 		Title = new TextField ();
 		
 		Bam = Assets.getSound("assets/bam.mp3");
 		
-		time = 	Lib.getTimer();
+		time = Lib.getTimer();
+		lastTime = Lib.getTimer();
 
-		whipEffect = new Whip ();
+		var array:Array<String> = new Array<String>();
+		array.push("WhipFX-0-1.png");
+		array.push("WhipFX-1-1.png");
+		array.push("WhipFX-2-1.png");
+
+		whipEffect = new MyAnimation (array, 400);
 	}
 
 	private function resize (newWidth:Int, newHeight:Int):Void {
@@ -121,10 +129,10 @@ class Game extends Sprite {
 	 * @param	event
 	 */
 	function onEnterFrame(event:Event): Void {
-		
-		var delta:Int = Lib.getTimer() - time;
+		var now:Int = Lib.getTimer();
+		var delta:Int = now - time;
 		Child.x -= delta / 1000;
-		whipEffect.updateMe(delta);
+		whipEffect.update();
 	}
 	
 }

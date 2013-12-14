@@ -27,15 +27,15 @@ class Whip extends AnimatedSprite {
     private var whip:Spritesheet;
 
 	public function new () {
-        whip = BitmapImporter.create(Assets.getBitmapData("assets/whip.png"), 3, 3, 100, 100);
+        whip = BitmapImporter.create(Assets.getBitmapData("assets/FX.png"), 3, 4, 400, 600);
 
         offsetX = 0;
         offsetY = 0;
 
         whip.addBehavior(new BehaviorData("void", [0, 1, 2], true));
-        whip.addBehavior(new BehaviorData("normal", [1, 2, 3], false, 15));
-        whip.addBehavior(new BehaviorData("fire", [4, 5, 6], false, 15));
-        whip.addBehavior(new BehaviorData("electric", [7, 8, 9], false, 15));
+        whip.addBehavior(new BehaviorData("normal", [3, 4, 5], false, 1));
+        whip.addBehavior(new BehaviorData("fire", [6, 7, 8], false));
+        whip.addBehavior(new BehaviorData("electric", [9, 10, 11], false));
 
         super(whip, true);
         showBehavior("void");
@@ -55,6 +55,6 @@ class Whip extends AnimatedSprite {
 	}
 
     public function updateMe (delta:Int) {
-        update(delta);
+        super.update(delta);
     }
 }
