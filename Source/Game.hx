@@ -121,6 +121,8 @@ class Game extends Sprite { //}
 		
 		var delta = Lib.getTimer() - time;
 		Child.x -= delta / 1000;
+
+		var child:Child = new Child();
 		
 	}
 	
