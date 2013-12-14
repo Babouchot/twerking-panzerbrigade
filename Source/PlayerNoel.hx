@@ -104,7 +104,7 @@ class PlayerNoel extends Entity
     }
 
     override function set_XPosition(value: Int):Int {
-    	animatedWhip.x = value;
+    	animatedWhip.x = value - 12;
 		return super.set_XPosition(value);
 	}
 
