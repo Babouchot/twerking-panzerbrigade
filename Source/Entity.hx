@@ -9,9 +9,9 @@ class Entity extends AnimatedSprite {
 	private var Skin:Bitmap;
 
 
-	public function new (xPosition:Int, xPosition:Int, imagePath:String) {
+	public function new (xPosition:Int, xPosition:Int, imagePath:String, sheet:Spritesheet) {
 		
-		super ();
+		super (sheet);
 		
 		initialize (xPosition, yPosition, imagePath);
 		construct ();
