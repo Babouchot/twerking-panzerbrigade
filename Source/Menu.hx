@@ -43,7 +43,7 @@ class Menu extends Sprite {
         Title.y = 12;
         Title.selectable = false;
         // Title.defaultTextFormat = defaultFormat;
-        Title.text = "Ceci est un titre";
+        Title.text = "Ceci est le titre de Menu";
 
 		addChild (Background);
         addChild (Title);

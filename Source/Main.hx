@@ -12,7 +12,7 @@ import openfl.Assets;
 import flash.Lib;
 
 class Main extends Sprite {
-
+	
     private var Background:Bitmap;
     private var Title:TextField;
     
@@ -26,6 +26,8 @@ class Main extends Sprite {
         resize (stage.stageWidth, stage.stageHeight);
         stage.addEventListener (Event.RESIZE, stage_onResize);
         stage.addEventListener (KeyboardEvent.KEY_DOWN, onPress );
+		
+		
     }
 
     private function construct ():Void {
@@ -43,7 +45,7 @@ class Main extends Sprite {
         Title.y = 12;
         Title.selectable = false;
         // Title.defaultTextFormat = defaultFormat;
-        Title.text = "Ceci est un titre";
+        Title.text = "Ceci est le titre de Main";
 
         addChild (Background);
         addChild (Title);
@@ -76,7 +78,8 @@ class Main extends Sprite {
     function onPress(event:KeyboardEvent) {
         switch(event.keyCode) {
             case Keyboard.ENTER:
-                new Game();
+                var game = new Game();
+				addChild(game);
             default:
         }
         
