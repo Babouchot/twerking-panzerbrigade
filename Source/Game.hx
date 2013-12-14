@@ -24,6 +24,7 @@ class Game extends Sprite {
 	private var whipEffect:MyAnimation;
 	private var entities	: Array<Entity>;
 	private var player : PlayerNoel;
+	private var sound:SoundManager;
 	
 	public function new () {
 		
@@ -33,6 +34,9 @@ class Game extends Sprite {
 		initialize ();
 		construct ();
 		
+		sound = new SoundManager();
+		sound.playMusic("nightmare_bc");
+
 		resize (stage.stageWidth, stage.stageHeight);
 		stage.addEventListener (Event.RESIZE, stage_onResize);
 		stage.addEventListener (KeyboardEvent.KEY_DOWN, onPress);
