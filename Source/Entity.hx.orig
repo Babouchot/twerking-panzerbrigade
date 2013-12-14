@@ -1,59 +1,86 @@
 import flash.display.Stage;
-import flash.display.Bitmap;
 import spritesheet.AnimatedSprite;
+<<<<<<< HEAD
 import spritesheet.Spritesheet;
 import spritesheet.data.BehaviorData;
 import spritesheet.importers.BitmapImporter;
 
-import flash.events.KeyboardEvent;
-import flash.ui.Keyboard;
 import openfl.Assets;
 
+=======
+import flash.display.Bitmap;
+import flash.geom.Point;
+import flash.events.KeyboardEvent;
+import flash.ui.Keyboard;
+>>>>>>> 6bcd50d5274c7e70d3895db7568588b1e8a7592d
 
-class Entity extends AnimatedSprite {
-	private var SkinSheet:Spritesheet;
+import openfl.Assets;
+
+<<<<<<< HEAD
+	private var XPositon:Int;
+	private var YPosition:Int;
+	private var Skin:Spritesheet;
+
+
+	public function new (xPosition:Int, yPosition:Int, imagePath:String) {
+		
+		Skin = BitmapImporter.create(Assets.getBitmapData(imagePath), 3, 3, 100, 100);
+
+		Skin.addBehavior(new BehaviorData("normal",[0, 1, 2], true));
+		Skin.addBehavior(new BehaviorData("hit",[1, 2, 3], false, 15));
+		Skin.addBehavior(new BehaviorData("attack",[4, 5, 6], false, 15));
+		
+
+		super (Skin, true);
+
+		XPositon = xPosition;
+		YPosition = yPosition;
+
+		showBehavior("normal");
+	}
+
+	
+=======
+//class Entity extends AnimatedSprite {
+class Entity {
 	private var XPosition(default,set):Int;
 	private var YPosition(default,set):Int;
 	private var Skin(default,default):Bitmap;
-	// private var stage:Stage;
+	private var stage:Stage;
 
 	function set_XPosition(value: Int):Int {
 		Skin.x = value;
 		return XPosition=value;
 	}
-
+	
 	function set_YPosition(value: Int):Int {
 		Skin.y = value;
 		return YPosition=value;
 	}
-
+	
 	public function new (xPosition:Int, yPosition:Int, imagePath:String, stage:Stage) {
-
-		// stage = this.stage;
+		
+		//super ();
+		stage = this.stage;
 		Skin = new Bitmap (Assets.getBitmapData (imagePath));
 		XPosition = xPosition;
 		YPosition = yPosition;
 		//Skin.x = XPositon;
 		//Skin.y = YPosition;
 		//initialize(xPosition, yPosition, imagePath);
-
-		SkinSheet = BitmapImporter.create(Assets.getBitmapData(imagePath), 3, 3, 100, 100);
-
-		SkinSheet.addBehavior(new BehaviorData("normal",[0, 1, 2], true));
-		SkinSheet.addBehavior(new BehaviorData("hit",[1, 2, 3], false, 15));
-		SkinSheet.addBehavior(new BehaviorData("attack",[4, 5, 6], false, 15));
-		
-
-		super (SkinSheet, true);
-
-		showBehavior("normal");
-
 		
 	}
 
+	
 	public function getSkin():Bitmap {
 		return Skin;
 	}
+	
+	
+
+	
+>>>>>>> 6bcd50d5274c7e70d3895db7568588b1e8a7592d
+
 	/**
 	 * Function called when the entity collide another one
 	 */
@@ -64,8 +91,13 @@ class Entity extends AnimatedSprite {
 	/**
 	 * Function called when the entity collide another one
 	 */
+<<<<<<< HEAD
 	public override function update (deltaTime:Int) : Void {
 		super.update(deltaTime);
+=======
+	public function update(){
+>>>>>>> 6bcd50d5274c7e70d3895db7568588b1e8a7592d
+
 	}
 	
 	public function onPress(event:KeyboardEvent) {

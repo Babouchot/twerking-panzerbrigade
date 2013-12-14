@@ -13,17 +13,22 @@ import flash.display.Stage;
 
 import openfl.Assets;
 
-class Game extends Sprite { //}
+class Game extends Sprite {
 
 	private var Background:Bitmap;
     private var Title:TextField;
-	private var speedField:TextField;
 	private var pn:Sprite;
 	private var Bam:Sound;
+<<<<<<< HEAD
 	private var time:Int;
-	private var whipEffect:MyAnimation;
+	private var whipEffect:Whip;
+
+	private var children:Child;
+	
+=======
+	private var time:Float;
 	private var entities	: Array<Entity>;
-	private var player : PlayerNoel;
+>>>>>>> 6bcd50d5274c7e70d3895db7568588b1e8a7592d
 	
 	public function new () {
 		
@@ -49,8 +54,7 @@ class Game extends Sprite { //}
         Title.text = "Ceci est le titre de Game";
 
 		entities = new Array<Entity>();
-		player = new PlayerNoel(stage);
-		entities.push(player);
+		entities.push(new PlayerNoel(stage));
 		entities.push(new Child(stage,0));
 		/*
 		pn.scaleX = 0.3;
@@ -63,6 +67,13 @@ class Game extends Sprite { //}
 		Child.y = stage.stageHeight / 2;
 		*/
 		addChild (Background);
+<<<<<<< HEAD
+		addChild (pn);
+		addChild (Child);
+        addChild (Title);
+        addChild (whipEffect);
+        addChild (children);
+=======
 		
 		//draw all the entities
 		for (i in 0...entities.length) {
@@ -71,14 +82,8 @@ class Game extends Sprite { //}
 		
 		//addChild (pn);
 		//addChild(Child);
-        addChild (Title);
-		speedField.x = stage.stageWidth/2;
-        speedField.width = 200;
-        speedField.y = 100;
-        speedField.selectable = false;
-        speedField.text = Std.string(player.speed);
-		addChild(speedField);
-        addChild (whipEffect);
+        addChild (Title);	
+>>>>>>> 6bcd50d5274c7e70d3895db7568588b1e8a7592d
 	}
 	
 	
@@ -86,20 +91,22 @@ class Game extends Sprite { //}
 		
 		Background = new Bitmap (Assets.getBitmapData ("assets/background.jpg"));
 		
+		/*
+		pn = new Sprite();
+		pn.addChild(new Bitmap (Assets.getBitmapData ("assets/pn.png")));
+		*/
+		//Child = new Sprite();
+		//Child.addChild(new Bitmap (Assets.getBitmapData ("assets/child.png")));
+		
 		Title = new TextField ();
-		speedField = new TextField();
 		
 		Bam = Assets.getSound("assets/bam.mp3");
 		
-		time = Lib.getTimer();
-		lastTime = Lib.getTimer();
+		time = 	Lib.getTimer();
 
-		var array:Array<String> = new Array<String>();
-		array.push("WhipFX-0-1.png");
-		array.push("WhipFX-1-1.png");
-		array.push("WhipFX-2-1.png");
+		whipEffect = new Whip ();
 
-		whipEffect = new MyAnimation (array, 400);
+		children = new Child(100, 100);
 	}
 
 	private function resize (newWidth:Int, newHeight:Int):Void {
@@ -132,10 +139,12 @@ class Game extends Sprite { //}
 				pn.y += 10;
 				if (pn.y > max) pn.y = max;
 			case Keyboard.SPACE:
-				
 				Bam.play();
+<<<<<<< HEAD
 				whipEffect.attack(1, 10, 10);
+=======
 				*/
+>>>>>>> 6bcd50d5274c7e70d3895db7568588b1e8a7592d
 			default:
 				
 		}
@@ -147,16 +156,23 @@ class Game extends Sprite { //}
 	 * Event called before each render
 	 * @param	event
 	 */
-	function onEnterFrame(event:Event): Void {		
+<<<<<<< HEAD
+	function onEnterFrame(event:Event): Void {
 		
-		var delta = Lib.getTimer() - time;
-
-		for (entity in entities) {
-			entity.update(delta); //update every entity in the level in each frame
-		}
-		speedField.text = Std.string(player.speed); //update the speed textfield with the new player speed 
-		//Child.x -= delta / 1000;
+		var delta:Int = Lib.getTimer() - time;
+		Child.x -= delta / 1000;
 		whipEffect.updateMe(delta);
+
+		children.update(delta);
+=======
+	function onEnterFrame(event:Event): Void {		
+		for (entity in entities) {
+			entity.update(); //update every entity in the level in each frame
+		}
+		var delta = Lib.getTimer() - time;
+		//Child.x -= delta / 1000;
+>>>>>>> 6bcd50d5274c7e70d3895db7568588b1e8a7592d
+		
 	}
 	
 }
