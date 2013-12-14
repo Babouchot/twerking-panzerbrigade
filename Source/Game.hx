@@ -17,11 +17,13 @@ class Game extends Sprite { //}
 
 	private var Background:Bitmap;
     private var Title:TextField;
+	private var speedField:TextField;
 	private var pn:Sprite;
 	private var Bam:Sound;
 	private var time:Int;
 	private var whipEffect:Whip;
 	private var entities	: Array<Entity>;
+	private var player : PlayerNoel;
 	
 	public function new () {
 		
@@ -47,7 +49,8 @@ class Game extends Sprite { //}
         Title.text = "Ceci est le titre de Game";
 
 		entities = new Array<Entity>();
-		entities.push(new PlayerNoel(stage));
+		player = new PlayerNoel(stage);
+		entities.push(player);
 		entities.push(new Child(stage,0));
 		/*
 		pn.scaleX = 0.3;
@@ -69,8 +72,15 @@ class Game extends Sprite { //}
 		//addChild (pn);
 		//addChild(Child);
         addChild (Title);
+		speedField.x = stage.stageWidth/2;
+        speedField.width = 200;
+        speedField.y = 100;
+        speedField.selectable = false;
+        speedField.text = Std.string(player.speed);
+		addChild(speedField);
         addChild (whipEffect);
 
+		
 	}
 	
 	
@@ -86,6 +96,7 @@ class Game extends Sprite { //}
 		//Child.addChild(new Bitmap (Assets.getBitmapData ("assets/child.png")));
 		
 		Title = new TextField ();
+		speedField = new TextField();
 		
 		Bam = Assets.getSound("assets/bam.mp3");
 		
@@ -147,7 +158,7 @@ class Game extends Sprite { //}
 		for (entity in entities) {
 			entity.update(delta); //update every entity in the level in each frame
 		}
-		
+		speedField.text = Std.string(player.speed); //update the speed textfield with the new player speed 
 		//Child.x -= delta / 1000;
 		whipEffect.updateMe(delta);
 		

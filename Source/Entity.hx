@@ -30,7 +30,7 @@ class Entity extends AnimatedSprite {
 	public function new (xPosition:Int, yPosition:Int, imagePath:String, stage:Stage) {
 
 		// stage = this.stage;
-		//Skin = new Bitmap (Assets.getBitmapData (imagePath));
+		Skin = new Bitmap (Assets.getBitmapData (imagePath));
 		XPosition = xPosition;
 		YPosition = yPosition;
 		//Skin.x = XPositon;

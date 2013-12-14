@@ -39,6 +39,7 @@ class PlayerNoel extends Entity
 		//stage.addEventListener (KeyboardEvent.KEY_DOWN, onPress);
 		current_frame = 0;
 		lane = 0;
+		speed = 5;
 	}
 	
 	override  function update(deltaTime:Int) : Void{
