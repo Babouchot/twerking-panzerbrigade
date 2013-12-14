@@ -19,32 +19,41 @@ class MyAnimation extends Sprite {
 	private var lastingTime:Int;
 	private var lastTime:Int;
 	private var actualImage:Int;
-	
-	public function new (paths:Array<String>, time:Int) {
+	private var running:Bool;
+	private var inf:Bool;
+
+	public function new (paths:Array<String>, time:Int, infinite:Bool) {
 		
 		super ();
 		lastingTime = time;
 		actualImage = 0;
+		inf = infinite;
+		images = new Array<Bitmap>();
 		for(s in paths) {
 			images.push(new Bitmap (Assets.getBitmapData (s)));
 		}
 	}
 
-	function start(): Void {
+	public function start(): Void {
+		actualImage = 0;
 		addChild(images[actualImage]);
 		lastTime = Lib.getTimer();
 		running = true;
 	}
 
-	function update(): Void {
+	public function update(): Void {
 		var now:Int = Lib.getTimer();
-		if(running && (now - lastTime > lastingTime) {
+		if(running && (now - lastTime > lastingTime)) {
 			removeChild(images[actualImage]);
 			actualImage++;
-			if(actualImage > images.length) {
-				running = false;
-				break;
-			}	
+			if(actualImage >= images.length) {
+				if(inf) {
+					actualImage = 0;
+				} else {
+					running = false;
+					return;
+				}
+			}
 			addChild(images[actualImage]);
 			lastTime = now;
 		}

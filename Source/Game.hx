@@ -66,7 +66,8 @@ class Game extends Sprite { //}
 		
 		//draw all the entities
 		for (i in 0...entities.length) {
-			addChild(entities[i].getSkin());
+			addChild(entities[i]);
+			entities[i].start();
 		}
 		
 		//addChild (pn);
@@ -92,14 +93,13 @@ class Game extends Sprite { //}
 		Bam = Assets.getSound("assets/bam.mp3");
 		
 		time = Lib.getTimer();
-		lastTime = Lib.getTimer();
 
 		var array:Array<String> = new Array<String>();
-		array.push("WhipFX-0-1.png");
-		array.push("WhipFX-1-1.png");
-		array.push("WhipFX-2-1.png");
+		array.push("assets/WhipFX-0-1.png");
+		array.push("assets/WhipFX-1-1.png");
+		array.push("assets/WhipFX-2-1.png");
 
-		whipEffect = new MyAnimation (array, 400);
+		whipEffect = new MyAnimation (array, 400, false);
 	}
 
 	private function resize (newWidth:Int, newHeight:Int):Void {
@@ -152,11 +152,11 @@ class Game extends Sprite { //}
 		var delta = Lib.getTimer() - time;
 
 		for (entity in entities) {
-			entity.update(delta); //update every entity in the level in each frame
+			entity.update(); //update every entity in the level in each frame
 		}
 		speedField.text = Std.string(player.speed); //update the speed textfield with the new player speed 
 		//Child.x -= delta / 1000;
-		whipEffect.updateMe(delta);
+		whipEffect.update();
 	}
 	
 }
