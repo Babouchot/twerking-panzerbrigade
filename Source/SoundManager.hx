@@ -32,7 +32,7 @@ class SoundManager {
 
 
 	public playMusic (name:String) :Void {
-		var music = new Sound (musicsMap[name]);
+		var music = new Sound (musicsMap.get(name));
 		musicChannel = music.play();
 		channel.addEventListener(Event.SOUND_COMPLETE, onPlaybackComplete);
 	}
