@@ -21,14 +21,21 @@ class MyAnimation extends Sprite {
 	private var actualImage:Int;
 	private var running:Bool;
 	private var inf:Bool;
+	private var pause:Bool;
+	private var first:Bool;
 
-	public function new (paths:Array<String>, time:Int, infinite:Bool) {
+	public function new (paths:Array<String>, time:Int, infinite:Bool, firstImageStop:Bool) {
 		
 		super ();
 		lastingTime = time;
 		actualImage = 0;
 		inf = infinite;
 		images = new Array<Bitmap>();
+		first = firstImageStop;
+		if(firstImageStop)
+			pause = true;
+		else
+			pause = false;
 		for(s in paths) {
 			images.push(new Bitmap (Assets.getBitmapData (s)));
 		}
@@ -41,14 +48,22 @@ class MyAnimation extends Sprite {
 		running = true;
 	}
 
+	public function restart(): Void {
+		pause = false;
+	}
+
 	public function update(): Void {
 		var now:Int = Lib.getTimer();
-		if(running && (now - lastTime > lastingTime)) {
+		if(!pause && running && (now - lastTime > lastingTime)) {
 			removeChild(images[actualImage]);
 			actualImage++;
 			if(actualImage >= images.length) {
 				if(inf) {
 					actualImage = 0;
+					if(first) {
+						pause = true;
+						addChild(images[actualImage]);
+					}	
 				} else {
 					running = false;
 					return;
@@ -58,5 +73,4 @@ class MyAnimation extends Sprite {
 			lastTime = now;
 		}
 	}
-	
 }
