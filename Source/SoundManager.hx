@@ -85,6 +85,7 @@ class SoundManager {
 
 	private function onPlaybackComplete(event:Event) : Void {
 			musicChannel = music.play(0);
+			musicChannel.addEventListener(Event.SOUND_COMPLETE, onPlaybackComplete);
 	}
 
 
