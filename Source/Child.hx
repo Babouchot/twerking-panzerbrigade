@@ -9,16 +9,36 @@ class Child extends Entity {
     private var lane(default, set):Int; // Lane number the character is in
 	public var speed:Int;
 
-	
-	
+
+	public function new (stage:Stage, lane:Int) {
+		var array:Array<String> = new Array<String>();
+		array.push("assets/ChildMale0-0-0.png");
+		array.push("assets/ChildMale0-1-0.png");
+		array.push("assets/ChildMale0-2-0.png");
+
+		super(stage.stageWidth, stage.stageHeight - 50, stage, array, 230, true);
+		scaleX = 0.3;
+		scaleY = 0.3;
+		this.lane = lane;
+		speed = 10;
+	}		
+
+				
 	function set_lane(value:Int):Int {
 		switch(value) {
 			case 0:
-				YPosition = 300;
+				YPosition = 425;
+				scaleX = 0.3;
+				scaleY = 0.3;
 			case 1:
-				YPosition = 200;
+				YPosition = 350;
+				scaleX = 0.25;
+				scaleY = 0.25;
 			case 2 :
-				YPosition = 150;
+				YPosition = 275;
+				
+				scaleX = 0.2;
+				scaleY = 0.2;
 
 		}
 		//YPosition = value * 100 + 50;
@@ -26,16 +46,15 @@ class Child extends Entity {
 		return lane=value;
 	}
 	
-	public function new(stage:Stage,lane:Int) 
-	{
-		super(stage.stageWidth, stage.stageHeight - 50, "assets/child.png",stage);
-		Skin.scaleX = 0.3;
-		Skin.scaleY = 0.3;
-		this.lane = lane;
-		speed = 10;
+
+	public override function onCollision () : Void {
+		super.onCollision();
+		// TODO
 	}
-	
-	override  function update(){
+
+	public override function update () : Void {
+		super.update();
+		// TODO 
 		XPosition -= speed;
 	}
 	

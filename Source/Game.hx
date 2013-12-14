@@ -17,10 +17,14 @@ class Game extends Sprite { //}
 
 	private var Background:Bitmap;
     private var Title:TextField;
+	private var speedField:TextField;
 	private var pn:Sprite;
 	private var Bam:Sound;
-	private var time:Float;
+	private var time:Int;
+	private var whipEffect:MyAnimation;
 	private var entities	: Array<Entity>;
+	private var player : PlayerNoel;
+
 	
 	public function new () {
 		
@@ -46,7 +50,8 @@ class Game extends Sprite { //}
         Title.text = "Ceci est le titre de Game";
 
 		entities = new Array<Entity>();
-		entities.push(new PlayerNoel(stage));
+		player = new PlayerNoel(stage);
+		entities.push(player);
 		entities.push(new Child(stage,0));
 		/*
 		pn.scaleX = 0.3;
@@ -62,12 +67,20 @@ class Game extends Sprite { //}
 		
 		//draw all the entities
 		for (i in 0...entities.length) {
-			addChild(entities[i].getSkin());
+			addChild(entities[i]);
+			entities[i].start();
 		}
 		
 		//addChild (pn);
 		//addChild(Child);
-        addChild (Title);	
+        addChild (Title);
+		speedField.x = stage.stageWidth/2;
+        speedField.width = 200;
+        speedField.y = 100;
+        speedField.selectable = false;
+        speedField.text = Std.string(player.speed);
+		addChild(speedField);
+        addChild (whipEffect);
 	}
 	
 	
@@ -75,19 +88,19 @@ class Game extends Sprite { //}
 		
 		Background = new Bitmap (Assets.getBitmapData ("assets/background.jpg"));
 		
-		/*
-		pn = new Sprite();
-		pn.addChild(new Bitmap (Assets.getBitmapData ("assets/pn.png")));
-		*/
-		//Child = new Sprite();
-		//Child.addChild(new Bitmap (Assets.getBitmapData ("assets/child.png")));
-		
 		Title = new TextField ();
+		speedField = new TextField();
 		
 		Bam = Assets.getSound("assets/bam.mp3");
 		
-		time = 	Lib.getTimer();
-		
+		time = Lib.getTimer();
+
+		var array:Array<String> = new Array<String>();
+		array.push("assets/WhipFX-0-1.png");
+		array.push("assets/WhipFX-1-1.png");
+		array.push("assets/WhipFX-2-1.png");
+
+		whipEffect = new MyAnimation (array, 400, false);
 	}
 
 	private function resize (newWidth:Int, newHeight:Int):Void {
@@ -122,6 +135,9 @@ class Game extends Sprite { //}
 			case Keyboard.SPACE:
 				
 				Bam.play();
+
+				whipEffect.attack(1, 10, 10);
+
 				*/
 			default:
 				
@@ -135,12 +151,29 @@ class Game extends Sprite { //}
 	 * @param	event
 	 */
 	function onEnterFrame(event:Event): Void {		
+
+		
+		var delta = Lib.getTimer() - time;
+
 		for (entity in entities) {
 			entity.update(); //update every entity in the level in each frame
 		}
-		var delta = Lib.getTimer() - time;
+		speedField.text = Std.string(player.speed); //update the speed textfield with the new player speed 
 		//Child.x -= delta / 1000;
+		whipEffect.update();
 		
+		//ChildGenerator
+		if (Std.random(90) % 5 == 0) {
+			var child = new Child(stage, Std.random(3));
+			entities.push(child);
+			addChild(child);
+			child.start();
+		}
+		//Remove the child off the screen
+		if (entities[1].x < -100) {
+			removeChild(entities[1]);
+			entities.splice(1, 1);
+		}
 	}
 	
 }
