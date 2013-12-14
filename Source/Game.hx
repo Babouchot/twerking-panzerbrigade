@@ -1,11 +1,15 @@
 package;
 
+import flash.events.TimerEvent;
+import flash.media.Sound;
 import flash.ui.Keyboard;
 import flash.display.Sprite;
 import flash.display.Bitmap;
 import flash.text.TextField;
 import flash.events.Event;
 import flash.events.KeyboardEvent;
+import flash.Lib;
+import flash.display.Stage;
 
 import openfl.Assets;
 
@@ -13,46 +17,65 @@ class Game extends Sprite { //}
 
 	private var Background:Bitmap;
     private var Title:TextField;
+	private var pn:Sprite;
+	private var Child:Sprite;
+	private var Bam:Sound;
+	private var time:Float;
+	
 	
 	public function new () {
 		
 		super ();
+		var stage = Lib.current.stage;
 		
 		initialize ();
 		construct ();
 		
 		resize (stage.stageWidth, stage.stageHeight);
 		stage.addEventListener (Event.RESIZE, stage_onResize);
-		stage.addEventListener (KeyboardEvent.KEY_DOWN, onPress );
+		stage.addEventListener (KeyboardEvent.KEY_DOWN, onPress);
+		stage.addEventListener (Event.ENTER_FRAME, onEnterFrame);
 	}
 
 	private function construct ():Void {
+		var stage = Lib.current.stage;
 		
-        // var font = Assets.getFont ("fonts/FreebooterUpdated.ttf");
-        // var defaultFormat = new TextFormat (font.fontName, 60, 0x000000);
-        // defaultFormat.align = TextFormatAlign.RIGHT;
-        
-        // #if js
-        // defaultFormat.align = TextFormatAlign.LEFT;
-        // #end
-
-        Title.x = stage.stageWidth - 200;
+        Title.x = stage.stageWidth/2;
         Title.width = 200;
         Title.y = 12;
         Title.selectable = false;
-        // Title.defaultTextFormat = defaultFormat;
-        Title.text = "Ceci est un titre";
+        Title.text = "Ceci est le titre de Game";
 
-		addChild (Background);
-        addChild (Title);
+		pn.scaleX = 0.3;
+		pn.scaleY = 0.3;
+		pn.x = 15;
+		pn.y = stage.stageHeight - pn.height - 10;
 		
+		Child.x = stage.stageWidth  + 10;
+		Child.y = stage.stageHeight / 2;
+		
+		addChild (Background);
+		addChild (pn);
+		addChild(Child);
+        addChild (Title);	
 	}
 	
 	
 	private function initialize ():Void {
 		
 		Background = new Bitmap (Assets.getBitmapData ("assets/background.jpg"));
-        Title = new TextField ();
+		
+		pn = new Sprite();
+		pn.addChild(new Bitmap (Assets.getBitmapData ("assets/pn.png")));
+		
+		Child = new Sprite();
+		Child.addChild(new Bitmap (Assets.getBitmapData ("assets/child.png")));
+		
+		Title = new TextField ();
+		
+		Bam = Assets.getSound("assets/bam.mp3");
+		
+		time = 	Lib.getTimer();
 		
 	}
 
@@ -71,12 +94,33 @@ class Game extends Sprite { //}
 	}
 	
 	
-	function onPress(event:KeyboardEvent) {
+	function onPress(event:KeyboardEvent):Void {
 		switch(event.keyCode) {
-			case Keyboard.ENTER:
-				new Game();
+			case Keyboard.UP:
+				var min = 0;
+				pn.y -= 10;
+				if (pn.y < min) pn.y = 0;
+			case Keyboard.DOWN:
+				var max = stage.stageHeight - pn.height;
+				pn.y += 10;
+				if (pn.y > max) pn.y = max;
+			case Keyboard.SPACE:
+				
+				Bam.play();
 			default:
 		}
+		
+	}
+	
+	/**
+	 * Move sprites depending on delta time
+	 * Event called before each render
+	 * @param	event
+	 */
+	function onEnterFrame(event:Event): Void {
+		
+		var delta = Lib.getTimer() - time;
+		Child.x -= delta / 1000;
 		
 	}
 	
