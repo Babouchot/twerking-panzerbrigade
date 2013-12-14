@@ -1,41 +1,36 @@
 import spritesheet.AnimatedSprite;
-import flash.display.Bitmap;
-import flash.geom.Point;
+import spritesheet.Spritesheet;
+import spritesheet.data.BehaviorData;
+import spritesheet.importers.BitmapImporter;
+
+import openfl.Assets;
+
 
 class Entity extends AnimatedSprite {
 
 	private var XPositon:Int;
 	private var YPosition:Int;
-	private var Skin:Bitmap;
+	private var Skin:Spritesheet;
 
 
-	public function new (xPosition:Int, xPosition:Int, imagePath:String) {
+	public function new (xPosition:Int, yPosition:Int, imagePath:String) {
 		
-		super ();
-		
-		initialize (xPosition, yPosition, imagePath);
-		construct ();
-		
-	}
+		Skin = BitmapImporter.create(Assets.getBitmapData(imagePath), 3, 3, 100, 100);
 
-	private function construct ():Void {
+		Skin.addBehavior(new BehaviorData("normal",[0, 1, 2], true));
+		Skin.addBehavior(new BehaviorData("hit",[1, 2, 3], false, 15));
+		Skin.addBehavior(new BehaviorData("attack",[4, 5, 6], false, 15));
 		
-        Skin.x = stage.stageWidth;
-        Skin.selectable = false;
 
-		addChild (Skin);
-		
-	}
-	
-	
-	private function initialize (xPositon:Int, yPosition:Int, imagePath):Void {
-		
-		XPositon = xPositon;
+		super (Skin, true);
+
+		XPositon = xPosition;
 		YPosition = yPosition;
-		Skin = new Bitmap (Assets.getBitmapData (imagePath));
-		
+
+		showBehavior("normal");
 	}
 
+	
 
 	/**
 	 * Function called when the entity collide another one
@@ -47,7 +42,8 @@ class Entity extends AnimatedSprite {
 	/**
 	 * Function called when the entity collide another one
 	 */
-	public function update () : Void {
+	public override function update (deltaTime:Int) : Void {
+		super.update(deltaTime);
 
 	}
 }

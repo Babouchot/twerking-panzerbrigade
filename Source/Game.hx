@@ -22,6 +22,8 @@ class Game extends Sprite {
 	private var Bam:Sound;
 	private var time:Int;
 	private var whipEffect:Whip;
+
+	private var children:Child;
 	
 	
 	public function new () {
@@ -60,6 +62,7 @@ class Game extends Sprite {
 		addChild (Child);
         addChild (Title);
         addChild (whipEffect);
+        addChild (children);
 	}
 	
 	
@@ -80,6 +83,8 @@ class Game extends Sprite {
 		time = 	Lib.getTimer();
 
 		whipEffect = new Whip ();
+
+		children = new Child(100, 100);
 	}
 
 	private function resize (newWidth:Int, newHeight:Int):Void {
@@ -125,7 +130,8 @@ class Game extends Sprite {
 		var delta:Int = Lib.getTimer() - time;
 		Child.x -= delta / 1000;
 		whipEffect.updateMe(delta);
-		var child:Child = new Child();
+
+		children.update(delta);
 		
 	}
 	

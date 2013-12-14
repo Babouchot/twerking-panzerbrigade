@@ -4,32 +4,21 @@ class Child extends Entity {
 
     private static var counter:Int;
 	
-	public function new () {
+	public function new (xPositon:Int, yPosition:Int) {
 		
-		super ("assets/child.jpg");
-		
-		initialize ();
-		construct ();
-		
+		super (xPositon, yPosition, "assets/child.png");
+				
 	}
 
-	private function construct ():Void {
-		
-	}
-	
-	
-	private function initialize ():Void {
-		
-	}
 
 
 	public override function onCollision () : Void {
-		super();
+		super.onCollision();
 		// TODO
 	}
 
-	public override function update () : Void {
-		super();
+	public override function update (deltaTime:Int) : Void {
+		super.update(deltaTime);
 		// TODO 
 	}
 	
