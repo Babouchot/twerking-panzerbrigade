@@ -157,6 +157,20 @@ class Game extends Sprite { //}
 		speedField.text = Std.string(player.speed); //update the speed textfield with the new player speed 
 		//Child.x -= delta / 1000;
 		whipEffect.update();
+		
+		
+		//ChildGenerator
+		if (Std.random(90) % 5 == 0) {
+			var child = new Child(stage, Std.random(3));
+			entities.push(child);
+			addChild(child);
+			child.start();
+		}
+		//Remove the child off the screen
+		if (entities[1].x < 0) {
+			removeChild(entities[1]);
+			entities.splice(1, 1);
+		}
 	}
 	
 }

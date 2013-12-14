@@ -26,11 +26,18 @@ class Child extends Entity {
 	function set_lane(value:Int):Int {
 		switch(value) {
 			case 0:
-				YPosition = 300;
+				YPosition = 425;
+				scaleX = 0.3;
+				scaleY = 0.3;
 			case 1:
-				YPosition = 200;
+				YPosition = 350;
+				scaleX = 0.25;
+				scaleY = 0.25;
 			case 2 :
-				YPosition = 150;
+				YPosition = 275;
+				
+				scaleX = 0.2;
+				scaleY = 0.2;
 
 		}
 		//YPosition = value * 100 + 50;
