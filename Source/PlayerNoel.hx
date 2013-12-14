@@ -33,17 +33,22 @@ class PlayerNoel extends Entity
 	
 	public function new(stage:Stage) 
 	{
-		super(15, stage.stageHeight - 50, "assets/pn.png",stage);
-		Skin.scaleX = 0.3;
-		Skin.scaleY = 0.3;
+		var array:Array<String> = new Array<String>();
+		array.push("assets/Sleigh-0-0.png");
+		array.push("assets/Sleigh-1-0.png");
+		array.push("assets/Sleigh-2-0.png");
+		array.push("assets/Sleigh-3-0.png");
+		super(15, stage.stageHeight - 50, stage, array, 160, true);
+		scaleX = 0.3;
+		scaleY = 0.3;
 		//stage.addEventListener (KeyboardEvent.KEY_DOWN, onPress);
 		current_frame = 0;
 		lane = 0;
 		speed = 5;
 	}
 	
-	override  function update(deltaTime:Int) : Void{
-		super.update(deltaTime);
+	override function update() : Void{
+		super.update();
 		current_frame++;
 		if (current_frame >= time_window) {
 			speed++;

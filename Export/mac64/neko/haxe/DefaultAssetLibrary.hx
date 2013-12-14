@@ -40,6 +40,12 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/background.jpg", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("assets/bam.mp3", __ASSET__assets_bam_mp3);
 		type.set ("assets/bam.mp3", Reflect.field (AssetType, "music".toUpperCase ()));
+		className.set ("assets/ChildMale0-0-0.png", __ASSET__assets_childmale0_0_0_png);
+		type.set ("assets/ChildMale0-0-0.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("assets/ChildMale0-1-0.png", __ASSET__assets_childmale0_1_0_png);
+		type.set ("assets/ChildMale0-1-0.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("assets/ChildMale0-2-0.png", __ASSET__assets_childmale0_2_0_png);
+		type.set ("assets/ChildMale0-2-0.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("assets/ChildMale0.png", __ASSET__assets_childmale0_png);
 		type.set ("assets/ChildMale0.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("assets/FX.png", __ASSET__assets_fx_png);
@@ -48,8 +54,44 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/openfl.svg", Reflect.field (AssetType, "text".toUpperCase ()));
 		className.set ("assets/Santa.png", __ASSET__assets_santa_png);
 		type.set ("assets/Santa.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("assets/Santa2-0-0.png", __ASSET__assets_santa2_0_0_png);
+		type.set ("assets/Santa2-0-0.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("assets/Santa2-1-0.png", __ASSET__assets_santa2_1_0_png);
+		type.set ("assets/Santa2-1-0.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("assets/Santa2-2-0.png", __ASSET__assets_santa2_2_0_png);
+		type.set ("assets/Santa2-2-0.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("assets/Santa2-3-0.png", __ASSET__assets_santa2_3_0_png);
+		type.set ("assets/Santa2-3-0.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("assets/Sleigh-0-0.png", __ASSET__assets_sleigh_0_0_png);
+		type.set ("assets/Sleigh-0-0.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("assets/Sleigh-1-0.png", __ASSET__assets_sleigh_1_0_png);
+		type.set ("assets/Sleigh-1-0.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("assets/Sleigh-2-0.png", __ASSET__assets_sleigh_2_0_png);
+		type.set ("assets/Sleigh-2-0.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("assets/Sleigh-3-0.png", __ASSET__assets_sleigh_3_0_png);
+		type.set ("assets/Sleigh-3-0.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("assets/Sleigh.png", __ASSET__assets_sleigh_png);
 		type.set ("assets/Sleigh.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("assets/WhipFX-0-1.png", __ASSET__assets_whipfx_0_1_png);
+		type.set ("assets/WhipFX-0-1.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("assets/WhipFX-0-2.png", __ASSET__assets_whipfx_0_2_png);
+		type.set ("assets/WhipFX-0-2.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("assets/WhipFX-0-3.png", __ASSET__assets_whipfx_0_3_png);
+		type.set ("assets/WhipFX-0-3.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("assets/WhipFX-1-1.png", __ASSET__assets_whipfx_1_1_png);
+		type.set ("assets/WhipFX-1-1.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("assets/WhipFX-1-2.png", __ASSET__assets_whipfx_1_2_png);
+		type.set ("assets/WhipFX-1-2.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("assets/WhipFX-1-3.png", __ASSET__assets_whipfx_1_3_png);
+		type.set ("assets/WhipFX-1-3.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("assets/WhipFX-2-0.png", __ASSET__assets_whipfx_2_0_png);
+		type.set ("assets/WhipFX-2-0.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("assets/WhipFX-2-1.png", __ASSET__assets_whipfx_2_1_png);
+		type.set ("assets/WhipFX-2-1.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("assets/WhipFX-2-2.png", __ASSET__assets_whipfx_2_2_png);
+		type.set ("assets/WhipFX-2-2.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("assets/WhipFX-2-3.png", __ASSET__assets_whipfx_2_3_png);
+		type.set ("assets/WhipFX-2-3.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		
 		
 		#elseif html5
@@ -58,6 +100,12 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/background.jpg", Reflect.field (AssetType, "image".toUpperCase ()));
 		path.set ("assets/bam.mp3", "assets/bam.mp3");
 		type.set ("assets/bam.mp3", Reflect.field (AssetType, "music".toUpperCase ()));
+		path.set ("assets/ChildMale0-0-0.png", "assets/ChildMale0-0-0.png");
+		type.set ("assets/ChildMale0-0-0.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("assets/ChildMale0-1-0.png", "assets/ChildMale0-1-0.png");
+		type.set ("assets/ChildMale0-1-0.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("assets/ChildMale0-2-0.png", "assets/ChildMale0-2-0.png");
+		type.set ("assets/ChildMale0-2-0.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		path.set ("assets/ChildMale0.png", "assets/ChildMale0.png");
 		type.set ("assets/ChildMale0.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		path.set ("assets/FX.png", "assets/FX.png");
@@ -66,8 +114,44 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/openfl.svg", Reflect.field (AssetType, "text".toUpperCase ()));
 		path.set ("assets/Santa.png", "assets/Santa.png");
 		type.set ("assets/Santa.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("assets/Santa2-0-0.png", "assets/Santa2-0-0.png");
+		type.set ("assets/Santa2-0-0.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("assets/Santa2-1-0.png", "assets/Santa2-1-0.png");
+		type.set ("assets/Santa2-1-0.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("assets/Santa2-2-0.png", "assets/Santa2-2-0.png");
+		type.set ("assets/Santa2-2-0.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("assets/Santa2-3-0.png", "assets/Santa2-3-0.png");
+		type.set ("assets/Santa2-3-0.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("assets/Sleigh-0-0.png", "assets/Sleigh-0-0.png");
+		type.set ("assets/Sleigh-0-0.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("assets/Sleigh-1-0.png", "assets/Sleigh-1-0.png");
+		type.set ("assets/Sleigh-1-0.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("assets/Sleigh-2-0.png", "assets/Sleigh-2-0.png");
+		type.set ("assets/Sleigh-2-0.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("assets/Sleigh-3-0.png", "assets/Sleigh-3-0.png");
+		type.set ("assets/Sleigh-3-0.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		path.set ("assets/Sleigh.png", "assets/Sleigh.png");
 		type.set ("assets/Sleigh.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("assets/WhipFX-0-1.png", "assets/WhipFX-0-1.png");
+		type.set ("assets/WhipFX-0-1.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("assets/WhipFX-0-2.png", "assets/WhipFX-0-2.png");
+		type.set ("assets/WhipFX-0-2.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("assets/WhipFX-0-3.png", "assets/WhipFX-0-3.png");
+		type.set ("assets/WhipFX-0-3.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("assets/WhipFX-1-1.png", "assets/WhipFX-1-1.png");
+		type.set ("assets/WhipFX-1-1.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("assets/WhipFX-1-2.png", "assets/WhipFX-1-2.png");
+		type.set ("assets/WhipFX-1-2.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("assets/WhipFX-1-3.png", "assets/WhipFX-1-3.png");
+		type.set ("assets/WhipFX-1-3.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("assets/WhipFX-2-0.png", "assets/WhipFX-2-0.png");
+		type.set ("assets/WhipFX-2-0.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("assets/WhipFX-2-1.png", "assets/WhipFX-2-1.png");
+		type.set ("assets/WhipFX-2-1.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("assets/WhipFX-2-2.png", "assets/WhipFX-2-2.png");
+		type.set ("assets/WhipFX-2-2.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("assets/WhipFX-2-3.png", "assets/WhipFX-2-3.png");
+		type.set ("assets/WhipFX-2-3.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		
 		
 		#else
@@ -511,14 +595,56 @@ class DefaultAssetLibrary extends AssetLibrary {
 
 class __ASSET__assets_background_jpg extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__assets_bam_mp3 extends null { }
+class __ASSET__assets_childmale0_0_0_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__assets_childmale0_1_0_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__assets_childmale0_2_0_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__assets_childmale0_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__assets_fx_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__assets_openfl_svg extends null { }
 class __ASSET__assets_santa_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__assets_santa2_0_0_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__assets_santa2_1_0_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__assets_santa2_2_0_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__assets_santa2_3_0_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__assets_sleigh_0_0_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__assets_sleigh_1_0_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__assets_sleigh_2_0_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__assets_sleigh_3_0_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__assets_sleigh_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__assets_whipfx_0_1_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__assets_whipfx_0_2_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__assets_whipfx_0_3_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__assets_whipfx_1_1_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__assets_whipfx_1_2_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__assets_whipfx_1_3_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__assets_whipfx_2_0_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__assets_whipfx_2_1_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__assets_whipfx_2_2_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__assets_whipfx_2_3_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 
 
 #elseif html5
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
