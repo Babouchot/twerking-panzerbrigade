@@ -2,6 +2,7 @@ package;
 
 import flash.media.Sound;
 import flash.media.SoundChannel;
+import flash.net.URLRequest;
 
 import flash.events.Event;
 
@@ -15,35 +16,41 @@ class SoundManager {
 	public var grelots_debut(default, default):Sound;
 	public var lutins(default, default):Sound;
 
-	private var musicChannel:SoundChannel;
-	private var pausePostion:Int;
 
-	private var musicsMap:Map<String, String> = ["carol" => "assets/music/carol_of_the_bells.ogg",
+	private var music:Sound;
+	private var musicChannel:SoundChannel;
+	private var pausePostion:Float;
+
+	private var musicsMap:Map<String, String>;
+
+
+	public function new () {
+		elec = new Sound(new URLRequest("assets/sound/elec.ogg"));
+		explosion = new Sound(new URLRequest("assets/sound/explosion.ogg"));
+		fouet = new Sound(new URLRequest("assets/sound/fouet.ogg"));
+		grelots = new Sound(new URLRequest("assets/sound/grelots.ogg"));
+		grelots_debut = new Sound(new URLRequest("assets/sound/grelots_beginning.ogg"));
+		lutins = new Sound(new URLRequest("assets/sound/lutins.ogg"));
+
+
+		musicsMap = ["carol" => "assets/music/carol_of_the_bells.ogg",
 												"e_nutcracker" => "assets/music/Evil_Nutcracker.ogg",
 												"jingle_bells" => "assets/music/jingle_bells.ogg",
 												"nightmare_bc" => "assets/music/nightmare_bc.ogg",
 												"nutcracker" => "assets/music/Nutcracker1.ogg"];
 
-
-	public function new () {
-		elec = new Sound("assets/sound/elec.ogg");
-		explosion = new Sound("assets/sound/explosion.ogg");
-		fouet = new Sound("assets/sound/fouet.ogg");
-		grelots = new Sound("assets/sound/grelots.ogg");
-		grelots_debut = new Sound("assets/sound/grelots_beginning.ogg");
-		lutins = new Sound("assets/sound/lutins.ogg");
 	}
 
 
 	public function playMusic (name:String) :Void {
-		var music = new Sound (musicsMap.get(name));
+		music = new Sound (new URLRequest(musicsMap.get(name)));
 		musicChannel = music.play();
-		channel.addEventListener(Event.SOUND_COMPLETE, onPlaybackComplete);
+		musicChannel.addEventListener(Event.SOUND_COMPLETE, onPlaybackComplete);
 	}
 
 	public function play() : Void {
 		if (pausePostion != 0) {
-			musicChannel.play(pausePostion);
+			musicChannel = music.play(pausePostion);
 		}
 	}
 
@@ -60,7 +67,7 @@ class SoundManager {
 
 
 	private function onPlaybackComplete(event:Event) : Void {
-		musicChannel.play(0);
+			musicChannel = music.play(0);
 	}
 
 }
