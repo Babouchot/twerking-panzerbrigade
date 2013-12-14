@@ -15,12 +15,12 @@ import openfl.Assets;
 
 class Game extends Sprite { //}
 
-	private var Background:Bitmap;
+	private var Backgrounds:Array<AnimatedBackground>;
     private var Title:TextField;
 	private var pn:Sprite;
 	private var Child:Sprite;
 	private var Bam:Sound;
-	private var time:Float;
+	private var time:Int;
 	
 	
 	public function new () {
@@ -54,16 +54,15 @@ class Game extends Sprite { //}
 		Child.x = stage.stageWidth  + 10;
 		Child.y = stage.stageHeight / 2;
 		
-		addChild (Background);
-		addChild (pn);
-		addChild(Child);
-        addChild (Title);	
+		for (b in Backgrounds) b.addAsChild(stage);
+		
+		stage.addChild (pn);
+		stage.addChild (Child);
+        stage.addChild (Title);	
 	}
 	
 	
 	private function initialize ():Void {
-		
-		Background = new Bitmap (Assets.getBitmapData ("assets/background.jpg"));
 		
 		pn = new Sprite();
 		pn.addChild(new Bitmap (Assets.getBitmapData ("assets/pn.png")));
@@ -77,24 +76,32 @@ class Game extends Sprite { //}
 		
 		time = 	Lib.getTimer();
 		
+		// Background
+		Backgrounds = new Array<AnimatedBackground>();
+		
+		var a = new AnimatedBackground(0, 500, "assets/Sky.png");
+		Backgrounds.push(a);
+		
+		a = new AnimatedBackground(0, 100, "assets/Mountains.png");
+		Backgrounds.push(a);
+		
+		a = new AnimatedBackground(0, 50, "assets/Trees.png");
+		Backgrounds.push(a);
+		
+		a = new AnimatedBackground(0, 10, "assets/Village.png");
+		Backgrounds.push(a);
+		
 	}
 
-	private function resize (newWidth:Int, newHeight:Int):Void {
-		
-		Background.width = newWidth;
-		Background.height = newHeight;
-		
+	private function resize (stageWidth:Int, stageHeight:Int) {
+		for ( b in Backgrounds) b.resize (stageWidth, stageHeight);
 	}
-	
-	
 	private function stage_onResize (event:Event):Void {
-		
 		resize (stage.stageWidth, stage.stageHeight);
-		
 	}
 	
 	
-	function onPress(event:KeyboardEvent):Void {
+	private function onPress(event:KeyboardEvent):Void {
 		switch(event.keyCode) {
 			case Keyboard.UP:
 				var min = 0;
@@ -105,7 +112,6 @@ class Game extends Sprite { //}
 				pn.y += 10;
 				if (pn.y > max) pn.y = max;
 			case Keyboard.SPACE:
-				
 				Bam.play();
 			default:
 		}
@@ -117,10 +123,15 @@ class Game extends Sprite { //}
 	 * Event called before each render
 	 * @param	event
 	 */
-	function onEnterFrame(event:Event): Void {
-		
+	private function onEnterFrame(event:Event): Void {
+		// Time difference with last frame rendering
 		var delta = Lib.getTimer() - time;
-		Child.x -= delta / 1000;
+		// Save actual time
+		time = Lib.getTimer();
+		
+		Child.x -= delta / 6;
+		
+		for (b in Backgrounds) b.move(delta, 15/* TODO SPEED SANTA CLAUS*/);
 		
 	}
 	
