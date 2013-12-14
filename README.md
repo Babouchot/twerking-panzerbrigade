@@ -1,4 +1,4 @@
 twerking-panzerbrigade
 ======================
 
-Panzerbrigade #LD48 game @Maurogiks @_MrMomo @Babouchot @TerkingElie
+Panzerbrigade #LD48 game @Maurogiks @_MrMomo @Babouchot @TwerkingElie
