@@ -1,53 +1,48 @@
-import spritesheet.AnimatedSprite;
+import flash.display.Stage;
+
 import flash.display.Bitmap;
-import flash.geom.Point;
 
-class Entity extends AnimatedSprite {
-
-	private var XPositon:Int;
-	private var YPosition:Int;
-	private var Skin:Bitmap;
+import flash.events.KeyboardEvent;
+import flash.ui.Keyboard;
+import openfl.Assets;
 
 
-	public function new (xPosition:Int, xPosition:Int, imagePath:String, sheet:Spritesheet) {
-		
-		super (sheet);
-		
-		initialize (xPosition, yPosition, imagePath);
-		construct ();
-		
+class Entity extends MyAnimation {
+
+	private var XPosition(default,set):Int;
+	private var YPosition(default,set):Int;
+	// private var stage:Stage;
+
+	function set_XPosition(value: Int):Int {
+		x = value;
+		return XPosition=value;
 	}
 
-	private function construct ():Void {
-		
-        Skin.x = stage.stageWidth;
-        Skin.selectable = false;
-
-		addChild (Skin);
-		
+	function set_YPosition(value: Int):Int {
+		y = value;
+		return YPosition=value;
 	}
-	
-	
-	private function initialize (xPositon:Int, yPosition:Int, imagePath):Void {
-		
-		XPositon = xPositon;
+
+	public function new (xPosition:Int, yPosition:Int, stage:Stage, imagePath:Array<String>, lastingTime:Int, infinite:Bool, starti:Bool) {
+		// stage = this.stage;
+		XPosition = xPosition;
 		YPosition = yPosition;
-		Skin = new Bitmap (Assets.getBitmapData (imagePath));
-		
+		//Skin.x = XPositon;
+		//Skin.y = YPosition;
+		//initialize(xPosition, yPosition, imagePath);
+
+		super (imagePath, lastingTime, infinite, starti);
 	}
-
-
 	/**
 	 * Function called when the entity collide another one
 	 */
+
 	public function onCollision () : Void{
 
+
 	}
-
-	/**
-	 * Function called when the entity collide another one
-	 */
-	public function update () : Void {
-
+	
+	public function onPress(event:KeyboardEvent) {
+		
 	}
 }
