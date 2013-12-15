@@ -6,6 +6,8 @@ import flash.ui.Keyboard;
 
 import openfl.Assets;
 import flash.display.Bitmap;
+
+import flash.media.SoundTransform;
 /**
  * ...
  * @author Elie Jacquelin
@@ -17,7 +19,7 @@ class PlayerNoel extends Entity
 	public var speed:Int;
 	private var time_window:Int = 50; //the number of frames to increase the speed
 	private var current_frame:Int;
-	private var animatedWhip:MyAnimation;
+	public var animatedWhip:MyAnimation;
 
 	override function set_lane(value:Int):Int {
 		switch(value) {
@@ -62,7 +64,7 @@ class PlayerNoel extends Entity
 		array2.push("assets/Santa2-2-0.png");
 		array2.push("assets/Santa2-3-0.png");
 
-		animatedWhip = new MyAnimation(array2, 55, true, true);
+		animatedWhip = new MyAnimation(array2, 40, true, true);
 
 		animatedWhip.scaleX = 0.3;
 		animatedWhip.scaleY = 0.3;
@@ -99,6 +101,7 @@ class PlayerNoel extends Entity
 				}
 			case Keyboard.SPACE:
 				animatedWhip.restart();
+				SoundManager.get_instance().fouet.play(0, 0, new SoundTransform(0.30));
 			default:
 		}
     }

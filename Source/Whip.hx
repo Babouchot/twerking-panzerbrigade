@@ -29,25 +29,24 @@ class Whip extends Sprite {
 	public function new (whipNormal:Array<String>, whipFire:Array<String>, whipElec:Array<String>) {
         super();
         whipEffects = new Array<MyAnimation>();
-        whipEffects[0] = new MyAnimation(whipNormal, 40, false, false);
-        whipEffects[1] = new MyAnimation(whipFire, 40, false, false);
-        whipEffects[2] = new MyAnimation(whipElec, 40, false, false);
+        whipEffects[0] = new MyAnimation(whipNormal, 20, false, false);
+        whipEffects[1] = new MyAnimation(whipFire, 20, false, false);
+        whipEffects[2] = new MyAnimation(whipElec, 20, false, false);
 
         for(a in whipEffects)
             addChild(a);
 	}
 
-	public function effect (fx, x, y, scaX, scaY) {
-        x = x + offsetX;
-        y = y + offsetY;
+	public function effect (fx, newX, newY, scaX:Float, scaY:Float) {
+        x = newX;
+        y = newY;
         scaleX = scaX;
         scaleY = scaY;
         whipEffects[fx].start();
 	}
 
-    override public function update () {
+    public function update () {
         for(a in whipEffects)
             a.update();
-        super.update();
     }
 }

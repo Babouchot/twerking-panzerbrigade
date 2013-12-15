@@ -43,23 +43,19 @@ class Entity extends MyAnimation {
 	 */
 
 	public function onCollision (){
-
-
 	}
-	
-	public function onPress(event:KeyboardEvent) {
-		
-	}
-	
-	public function WhipOverlaps(lane:Int) {
-		if(this.lane==lane){
-			var whipX = 300;
-			if (XPosition - radius < whipX && XPosition + radius > whipX) {
-				onCollision();
+
+	public function WhipOverlaps(lane:Int, whipX:Int) {
+		if(this.lane == lane){
+			if (whipX - Std.int(300*scaleX) < XPosition && whipX > XPosition) {
 				return true;
 			}
 		}
 		return false;
+	}
+	
+	public function onPress(event:KeyboardEvent) {
+		
 	}
 	
 	//collision between 2 entities

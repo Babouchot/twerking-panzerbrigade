@@ -15,7 +15,7 @@ import openfl.Assets;
 
 class MyAnimation extends Sprite {
 
-	private var images:Array<Bitmap>;
+	public var images:Array<Bitmap>;
 	private var lastingTime:Int;
 	private var lastTime:Int;
 	private var actualImage:Int;
