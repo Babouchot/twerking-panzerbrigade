@@ -2,6 +2,7 @@ package;
 
 import flash.events.TimerEvent;
 import flash.media.Sound;
+import flash.media.SoundTransform;
 import flash.ui.Keyboard;
 import flash.display.Sprite;
 import flash.display.Bitmap;
@@ -27,6 +28,10 @@ class Game extends Sprite {
 	private var sound:SoundManager;
 	private var attacking :Bool;
 	private var bonus:Int;
+
+	private var score:Int;
+
+	private var scoreField:TextField;
 	
 	public function new () {
 		
@@ -78,7 +83,12 @@ class Game extends Sprite {
 		Plans.push(sprite);
 		
 		
-		
+		scoreField.x = 10;
+		scoreField.width = 200;
+		scoreField.y = 10;
+
+		scoreField.text = "0";
+
 		
 		/////////////////////////////////////////////////////////////
 		//////// ADDING SPRITE LAYERS TO STAGE NOTHING ELSE ////////
@@ -91,7 +101,10 @@ class Game extends Sprite {
 	private function initialize ():Void {
 		attacking = false;
 		bonus = 0;
+		score = 0;
 		speedField = new TextField();
+
+		scoreField = new TextField();
 		
 		time = Lib.getTimer();
 
@@ -154,6 +167,8 @@ class Game extends Sprite {
 	 */
 	function onEnterFrame(event:Event): Void {		
 
+		scoreField.text = Std.string(score);
+
 		if(player.speed == 88) {
 			// End of the game WIN
 		}
@@ -188,6 +203,7 @@ class Game extends Sprite {
 			entities.push(lutin);
 			Plans[1].addChild(lutin);
 			lutin.start();
+			sound.lutins.play();
 		}
 		
 		for (entity in entities) {
@@ -197,6 +213,18 @@ class Game extends Sprite {
 					whipEffect.effect(bonus, Std.int(entity.x), Std.int(entity.y), entity.scaleX, entity.scaleY);
 					if (entity.isLutin()) {
 						bonus = entity.getType();
+						switch (bonus) {
+							case 1:
+								sound.explosion.play(0, 0, new SoundTransform(0.2));
+								score -= 50;
+							case 2:
+								sound.elec.play(0, 0, new SoundTransform(0.5));
+								score -= 50;
+							default:
+						}
+					}
+					else {
+						score += 1+bonus;
 					}
 					entities.remove(entity);
 					Plans[1].removeChild(entity);
@@ -207,6 +235,12 @@ class Game extends Sprite {
 				entities.remove(entity);
 				Plans[1].removeChild(entity);
 				player.speed -= 1;
+				if (entity.isLutin()) {
+					score += 10;
+				}
+				else {
+					score -= 10;
+				}
 			}
 		}
 		attacking = false;

@@ -12,17 +12,17 @@ class Lutin extends Entity {
 
 	public function new (stage:Stage, lane:Int) {
 		var array:Array<String> = new Array<String>();
-		type = Std.random(3);
+		type = Std.random(2) + 1;
 
 		switch (type) {
 			case 1: // Fire
-				array.push("assets/Cadaver.png");
-				array.push("assets/Cadaver.png");
-				array.push("assets/Cadaver.png");
+				array.push("assets/Lutin-0-0.png");
+				array.push("assets/Lutin-1-0.png");
+				array.push("assets/Lutin-2-0.png");
 			case 2: // Thunder
-				array.push("assets/Cadaver.png");
-				array.push("assets/Cadaver.png");
-				array.push("assets/Cadaver.png");
+				array.push("assets/Lutin-Thunder-0-0.png");
+				array.push("assets/Lutin-Thunder-1-0.png");
+				array.push("assets/Lutin-Thunder-2-0.png");
 			default: // Blood
 				array.push("assets/Cadaver.png");
 				array.push("assets/Cadaver.png");
