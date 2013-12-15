@@ -1,5 +1,7 @@
 package ;
 import flash.display.Bitmap;
+import flash.display.DisplayObject;
+import flash.display.DisplayObjectContainer;
 import flash.display.Sprite;
 import flash.display.Stage;
 import openfl.Assets;
@@ -40,7 +42,7 @@ class AnimatedBackground {
 
 	}
 	
-	public function addAsChild(stage:Stage) {
+	public function addAsChild(stage:DisplayObjectContainer) {
 		for (i in sprites) stage.addChild(i);
 	}
 	

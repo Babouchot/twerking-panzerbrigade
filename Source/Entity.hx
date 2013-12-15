@@ -1,4 +1,5 @@
 import flash.display.Stage;
+import flash.events.Event;
 
 import flash.display.Bitmap;
 
@@ -33,6 +34,7 @@ class Entity extends MyAnimation {
 		// stage = this.stage;
 		XPosition = xPosition;
 		YPosition = yPosition;
+		radius = 100;
 		//Skin.x = XPositon;
 		//Skin.y = YPosition;
 		//initialize(xPosition, yPosition, imagePath);
@@ -44,15 +46,23 @@ class Entity extends MyAnimation {
 	 */
 
 	public function onCollision (){
-
-
+		
 	}
 	
 	public function onPress(event:KeyboardEvent) {
 		
 	}
 	
-	public inline function WhipOverlaps(lane:Int) {
+	public inline function WhipOverlaps(lane:Int):Bool {
+		var whipX = 500;
+		if (this.lane == lane && XPosition - radius < whipX && XPosition + radius > whipX) {
+			onCollision();
+			return true;
+		} else {
+			return false;
+			dispatchEvent(new Event("HELLO"));
+		}
+		/*
 		if(this.lane==lane){
 			var whipX = 300;
 			if (XPosition - radius < whipX && XPosition + radius > whipX) {
@@ -61,6 +71,7 @@ class Entity extends MyAnimation {
 			};
 		}
 		return false;
+		*/
 	}
 	
 	//collision between 2 entities

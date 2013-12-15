@@ -16,7 +16,6 @@ import openfl.Assets;
 class Game extends Sprite {
 
 	private var Backgrounds:Array<AnimatedBackground>;
-    private var Title:TextField;
 	private var speedField:TextField;
 	private var pn:Sprite;
 	private var Bam:Sound;
@@ -42,15 +41,11 @@ class Game extends Sprite {
 
 	private function construct ():Void {
 		var stage = Lib.current.stage;
-		
-        Title.x = stage.stageWidth/2;
-        Title.width = 200;
-        Title.y = 12;
-        Title.selectable = false;
-        Title.text = "Ceci est le titre de Game";
-		
-		for (b in Backgrounds) b.addAsChild(stage);
-		
+		var back:Sprite = new Sprite();
+		back.x = stage.x;
+		back.y = stage.y;
+		for (b in Backgrounds) b.addAsChild(back);
+		addChild(back);
 		entities = new Array<Entity>();
 		player = new PlayerNoel(stage);
 		entities.push(new Child(stage,0));
@@ -60,7 +55,6 @@ class Game extends Sprite {
 			entities[i].start();
 		}
 
-        stage.addChild (Title);
 		speedField.x = stage.stageWidth/2;
         speedField.width = 200;
         speedField.y = 100;
@@ -69,14 +63,13 @@ class Game extends Sprite {
 		stage.addChild(speedField);
         stage.addChild (whipEffect);
         stage.addChild(player);
-        entities.push(player);
+        // entities.push(player);
         player.start();
 	}
 	
 	
 	private function initialize ():Void {
 		attacking = false;
-		Title = new TextField ();
 		speedField = new TextField();
 		
 		time = Lib.getTimer();
@@ -118,10 +111,8 @@ class Game extends Sprite {
 	}
 
 	private function onPress(event:KeyboardEvent):Void {
-
-		for (i in 0...entities.length) {
-			entities[i].onPress(event);
-		}
+		player.onPress(event);
+		
 		if (event.keyCode == Keyboard.SPACE) {
 			attacking = true;
 		}
@@ -140,6 +131,7 @@ class Game extends Sprite {
 		for (entity in entities) {
 			entity.update(); //update every entity in the level in each frame
 		}
+		player.update();
 		speedField.text = Std.string(player.speed); //update the speed textfield with the new player speed 
 
 		whipEffect.update();
