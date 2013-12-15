@@ -53,20 +53,31 @@ class Entity extends MyAnimation {
 		}
 		return false;
 	}
+
+	public function collideWithSleigh (lane:Int, entity:Entity) {
+		if(this.lane == lane) {
+			if (entity.XPosition < radius) {
+				return true;
+			}
+		}
+		return false;
+	}
 	
 	public function onPress(event:KeyboardEvent) {
 		
 	}
 	
 	//collision between 2 entities
-	public inline function overlaps(e:Entity) {
+	public function overlaps(e:Entity) {
 		var maxDist = radius + e.radius;
 		// classic distance formula
 		var distSqr = (e.x-x)*(e.x-x) + (e.y-y)*(e.y-y);
 		if( distSqr<=maxDist*maxDist )
+			return false;
 		// square root computed here for performances sake
 		if ( Math.sqrt(distSqr) <= maxDist) {
-			onCollision();
+			return true;
 		}
+		return false;
 	}
 }

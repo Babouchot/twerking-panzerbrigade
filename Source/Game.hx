@@ -141,6 +141,14 @@ class Game extends Sprite {
 	 */
 	function onEnterFrame(event:Event): Void {		
 
+		if(player.speed == 88) {
+			// End of the game WIN
+		}
+
+		if(player.speed < 2) {
+			player.speed == 2;
+		}
+
 		var delta = Lib.getTimer() - time;
 		time = Lib.getTimer();
 		
@@ -162,9 +170,8 @@ class Game extends Sprite {
 			}
 		}
 		
-		//Whip attack
-		if (attacking) {
-			for (entity in entities) {
+		for (entity in entities) {
+			if (attacking) {
 				if (entity.WhipOverlaps(player.lane, Std.int(player.animatedWhip.images[0].bitmapData.width * player.scaleX))) {
 					//remove the child from the stage in a bloody way
 					whipEffect.effect(0, Std.int(entity.x), Std.int(entity.y), entity.scaleX, entity.scaleY);
@@ -172,8 +179,14 @@ class Game extends Sprite {
 					stage.removeChild(entity);
 				}
 			}
-			attacking = false;
+
+			if(player.collideWithSleigh(entity.lane, entity)) {
+				entities.remove(entity);
+				stage.removeChild(entity);
+				player.speed -= 1;
+			}
 		}
+		attacking = false;
 		for (b in Backgrounds) b.move(delta, player.speed);
 
 		for (entity in entities) {

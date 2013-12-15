@@ -77,11 +77,13 @@ class PlayerNoel extends Entity
 		current_frame = 0;
 		lane = 0;
 		speed = 5;
+		radius = images[0].bitmapData.width * scaleX;
 	}
 	
 	override function update() : Void{
 		animatedWhip.update();
 		lastingTime = Std.int(140 - speed/3);
+		radius = images[0].bitmapData.width * (scaleX - 0.1);
 		super.update();
 		current_frame++;
 		if (current_frame >= time_window) {
@@ -102,8 +104,6 @@ class PlayerNoel extends Entity
 				}
 			case Keyboard.SPACE:
 				animatedWhip.restart();
-				if(!animatedWhip.running)
-					SoundManager.get_instance().fouet.play(0, 0, new SoundTransform(0.30));
 			default:
 		}
     }
