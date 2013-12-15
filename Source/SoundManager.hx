@@ -27,6 +27,10 @@ class SoundManager {
 	private var loopedSounds:Map<String, SoundChannel>;
 
 
+	public static var instance:SoundManager = null;
+
+
+
 	public function new () {
 		elec = new Sound(new URLRequest("assets/sound/elec.ogg"));
 		explosion = new Sound(new URLRequest("assets/sound/explosion.ogg"));
@@ -46,6 +50,15 @@ class SoundManager {
 		loopedSounds = new Map <String, SoundChannel>();
 	}
 
+
+	public static function get_instance() {
+		if (instance == null) {
+			return instance = new SoundManager();
+		}
+		else {
+			return instance;
+		}
+	}
 
 	public function playMusic (name:String) :Void {
 		music = new Sound (new URLRequest(musicsMap.get(name)));
@@ -85,6 +98,7 @@ class SoundManager {
 
 	private function onPlaybackComplete(event:Event) : Void {
 			musicChannel = music.play(0);
+			musicChannel.addEventListener(Event.SOUND_COMPLETE, onPlaybackComplete);
 	}
 
 

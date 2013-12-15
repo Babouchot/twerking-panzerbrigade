@@ -126,6 +126,12 @@ class Game extends Sprite {
 		for (i in 0...entities.length) {
 			entities[i].onPress(event);
 		}
+
+		switch(event.keyCode) {
+			case Keyboard.SPACE:
+				sound.fouet.play();
+			default:
+		}
 		
 	}
 	
