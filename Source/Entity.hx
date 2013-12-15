@@ -47,7 +47,7 @@ class Entity extends MyAnimation {
 
 	public function WhipOverlaps(lane:Int, whipX:Int) {
 		if(this.lane == lane){
-			if (whipX - Std.int(300*scaleX) < XPosition && whipX > XPosition) {
+			if (whipX - Std.int(210*scaleX) > XPosition) {
 				return true;
 			}
 		}

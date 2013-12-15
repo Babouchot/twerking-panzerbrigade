@@ -28,22 +28,14 @@ class PlayerNoel extends Entity
 				YPosition = 300;
 				scaleX = 0.3;
 				scaleY = 0.3;
-				animatedWhip.scaleX = 0.3;
-				animatedWhip.scaleY = 0.3;
 			case 1:
 				YPosition = 250;
 				scaleX = 0.25;
 				scaleY = 0.25;
-				animatedWhip.scaleX = 0.25;
-				animatedWhip.scaleY = 0.25;
 			case 2 :
 				YPosition = 200;
 				scaleX = 0.2;
 				scaleY = 0.2;
-				animatedWhip.scaleX = 0.2;
-				animatedWhip.scaleY = 0.2;
-
-
 		}
 		//YPosition = value * 100 + 50;
 		
@@ -52,13 +44,12 @@ class PlayerNoel extends Entity
 	
 	public function new(stage:Stage) 
 	{
-
 		var array:Array<String> = new Array<String>();
 		array.push("assets/Sleigh-0-0.png");
 		array.push("assets/Sleigh-1-0.png");
 		array.push("assets/Sleigh-2-0.png");
 		array.push("assets/Sleigh-3-0.png");
-		
+
 		var array2:Array<String> = new Array<String>();
 		array2.push("assets/Santa2-0-0.png");
 		array2.push("assets/Santa2-1-0.png");
@@ -67,18 +58,16 @@ class PlayerNoel extends Entity
 
 		animatedWhip = new MyAnimation(array2, 40, true, true);
 
-		animatedWhip.scaleX = 0.3;
-		animatedWhip.scaleY = 0.3;
-
-		addChild(animatedWhip);
-		animatedWhip.start();
 		super(15, stage.stageHeight - 50, stage, array, 140, true, false);
+
+		animatedWhip.start();
 		scaleX = 0.3;
 		scaleY = 0.3;
 		current_frame = 0;
 		lane = 0;
 		speed = 5;
 		radius = images[0].bitmapData.width * scaleX;
+		addChild(animatedWhip);
 	}
 	
 	override function update() : Void{
@@ -110,12 +99,10 @@ class PlayerNoel extends Entity
     }
 
     override function set_XPosition(value: Int):Int {
-    	animatedWhip.x = value - 12;
 		return super.set_XPosition(value);
 	}
 
 	override function set_YPosition(value: Int):Int {
-		animatedWhip.y = value;
 		return super.set_YPosition(value);
 	}
 }

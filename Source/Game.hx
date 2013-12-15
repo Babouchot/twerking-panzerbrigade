@@ -157,7 +157,7 @@ class Game extends Sprite {
 		}
 
 		if(player.speed < 2) {
-			player.speed == 2;
+			player.speed = 2;
 		}
 
 		var delta = Lib.getTimer() - time;
@@ -170,13 +170,13 @@ class Game extends Sprite {
 		if (Std.random(90) % 5 == 0) {
 			var child = new Child(stage, Std.random(3));
 			entities.push(child);
-			stage.addChild(child);
+			Plans[1].addChild(child);
 			child.start();
 		}
 		//Remove the child off the screen
 		for(a in entities) {
 			if (a.x < -100) {
-				removeChild(a);
+				Plans[1].removeChild(a);
 				entities.remove(a);
 			}
 		}
@@ -187,13 +187,13 @@ class Game extends Sprite {
 					//remove the child from the stage in a bloody way
 					whipEffect.effect(0, Std.int(entity.x), Std.int(entity.y), entity.scaleX, entity.scaleY);
 					entities.remove(entity);
-					stage.removeChild(entity);
+					Plans[1].removeChild(entity);
 				}
 			}
 
 			if(player.collideWithSleigh(entity.lane, entity)) {
 				entities.remove(entity);
-				stage.removeChild(entity);
+				Plans[1].removeChild(entity);
 				player.speed -= 1;
 			}
 		}
