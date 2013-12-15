@@ -21,6 +21,7 @@ class SoundManager {
 	private var musicPaused:Bool;
 	private var musicChannel:SoundChannel;
 	private var pausePostion:Float;
+	private var musicIterator:Iterator<String>;
 
 	private var musicsMap:Map<String, String>;
 
@@ -40,9 +41,9 @@ class SoundManager {
 		lutins = new Sound(new URLRequest("assets/sound/lutins.ogg"));
 
 
-		musicsMap = ["carol" => "assets/music/carol_of_the_bells.ogg",
-												"e_nutcracker" => "assets/music/Evil_Nutcracker.ogg",
-												"jingle_bells" => "assets/music/jingle_bells.ogg",
+		musicsMap = ["jingle_bells" => "assets/music/jingle_bells.ogg",
+												"carol" => "assets/music/carol_of_the_bells.ogg",
+												"e_nutcracker" => "assets/music/Evil-Nutcracker.ogg",
 												"nightmare_bc" => "assets/music/nightmare_bc.ogg",
 												"nutcracker" => "assets/music/Nutcracker1.ogg"];
 
@@ -117,6 +118,23 @@ class SoundManager {
 	public function unLoopSound (id: String) {
 		loopedSounds.get(id).stop();
 		loopedSounds.remove(id);
+	}
+
+	public function gameMusicLoop () {
+		musicIterator = musicsMap.iterator();
+		playMusicInLoop(null);
+	}
+
+	private function playMusicInLoop(event:Event) {
+		if (musicIterator.hasNext()) {
+			music = new Sound(new URLRequest(musicIterator.next()));
+			musicChannel = music.play();
+			musicChannel.addEventListener(Event.SOUND_COMPLETE, playMusicInLoop);
+			musicPaused = false;
+		}
+		else {
+			gameMusicLoop();
+		}
 	}
 
 }
