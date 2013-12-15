@@ -15,14 +15,15 @@ import openfl.Assets;
 
 class MyAnimation extends Sprite {
 
-	private var images:Array<Bitmap>;
-	private var lastingTime:Int;
+	public var images:Array<Bitmap>;
+	public var lastingTime:Int;
 	private var lastTime:Int;
 	private var actualImage:Int;
-	private var running:Bool;
+	public var running:Bool;
 	private var inf:Bool;
 	private var pause:Bool;
 	private var first:Bool;
+	//private var mstage:Stage;
 
 	public function new (paths:Array<String>, time:Int, infinite:Bool, firstImageStop:Bool) {
 		
@@ -31,6 +32,7 @@ class MyAnimation extends Sprite {
 		actualImage = 0;
 		inf = infinite;
 		images = new Array<Bitmap>();
+		//mstage=Lib.current.stage;
 		first = firstImageStop;
 		if(firstImageStop)
 			pause = true;
@@ -50,6 +52,7 @@ class MyAnimation extends Sprite {
 
 	public function restart(): Void {
 		pause = false;
+		running = true;
 	}
 
 	public function update(): Void {

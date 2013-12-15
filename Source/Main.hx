@@ -79,7 +79,10 @@ class Main extends Sprite {
         switch(event.keyCode) {
             case Keyboard.ENTER:
                 var game = new Game();
+				removeChild(Background);
+                removeChild(Title);
 				addChild(game);
+				stage.removeEventListener(KeyboardEvent.KEY_DOWN, onPress);
             default:
         }
         
