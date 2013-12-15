@@ -10,6 +10,10 @@ import flash.events.Event;
 import flash.events.KeyboardEvent;
 import flash.Lib;
 import flash.display.Stage;
+import flash.text.TextFormat;
+import flash.text.TextFormatAlign;
+import flash.filters.BlurFilter;
+import flash.filters.DropShadowFilter;
 
 import openfl.Assets;
 
@@ -69,16 +73,30 @@ class Game extends Sprite {
 		
 		// Speedfield
 		sprite = new Sprite();
-		speedField.x = stage.stageWidth/2;
-        speedField.width = 200;
-        speedField.y = 100;
-        speedField.selectable = false;
-        speedField.text = Std.string(player.speed);
+		var font = Assets.getFont ("assets/fonts/FreebooterUpdated.ttf");
+		var defaultFormat = new TextFormat (font.fontName, 60, 0xFFFFFF);
+		defaultFormat.align = TextFormatAlign.RIGHT;
+		
+		#if js
+		defaultFormat.align = TextFormatAlign.LEFT;
+		#end
+		
+		speedField.x = stage.width - 200;
+		speedField.width = 200;
+		speedField.y = 12;
+		speedField.selectable = false;
+		speedField.defaultTextFormat = defaultFormat;
+		
+		#if !js
+		speedField.filters = [ new BlurFilter (1.5, 1.5), new DropShadowFilter (1, 45, 0, 0.2, 5, 5) ];
+		#else
+		speedField.y = 0;
+		speedField.x += 90;
+		#end
+		
+		speedField.embedFonts = true;
 		sprite.addChild(speedField);
 		Plans.push(sprite);
-		
-		
-		
 		
 		/////////////////////////////////////////////////////////////
 		//////// ADDING SPRITE LAYERS TO STAGE NOTHING ELSE ////////
@@ -132,6 +150,8 @@ class Game extends Sprite {
 
 	private function resize (newWidth:Int, newHeight:Int):Void {
 		for ( b in Backgrounds) b.resize (newWidth, newHeight);
+		speedField.x = newWidth - 200;
+		speedField.width = 200;
 	}
 
 	private function stage_onResize (event:Event):Void {
@@ -165,7 +185,7 @@ class Game extends Sprite {
 		var delta = Lib.getTimer() - time;
 		time = Lib.getTimer();
 		
-		speedField.text = Std.string(player.speed); //update the speed textfield with the new player speed 
+		speedField.text = Std.string(player.speed) + " mp/h"; //update the speed textfield with the new player speed 
 
 		whipEffect.update();
 		//ChildGenerator
