@@ -38,19 +38,19 @@ class SoundManager {
 
 
 	public function new () {
-		elec = new Sound(new URLRequest("assets/sound/elec.ogg"));
-		explosion = new Sound(new URLRequest("assets/sound/explosion.ogg"));
-		fouet = new Sound(new URLRequest("assets/sound/fouet.ogg"));
-		grelots = new Sound(new URLRequest("assets/sound/grelots.ogg"));
-		grelots_debut = new Sound(new URLRequest("assets/sound/grelots_beginning.ogg"));
-		lutins = new Sound(new URLRequest("assets/sound/lutins.ogg"));
+		elec = new Sound(new URLRequest("assets/sound/elec.wav"));
+		explosion = new Sound(new URLRequest("assets/sound/explosion.wav"));
+		fouet = new Sound(new URLRequest("assets/sound/fouet.wav"));
+		grelots = new Sound(new URLRequest("assets/sound/grelots.wav"));
+		grelots_debut = new Sound(new URLRequest("assets/sound/grelots_beginning.wav"));
+		lutins = new Sound(new URLRequest("assets/sound/lutins.wav"));
 
 
-		musicsArray = [new Sound (new URLRequest("assets/music/jingle_bells.ogg")),
-						new Sound (new URLRequest("assets/music/carol_of_the_bells.ogg")),
-						new Sound (new URLRequest("assets/music/Evil-Nutcracker.ogg")),
-						new Sound (new URLRequest("assets/music/nightmare_bc.ogg")),
-						new Sound (new URLRequest("assets/music/Nutcracker1.ogg"))];
+		musicsArray = [new Sound (new URLRequest("assets/music/jingle_bells.wav")),
+						new Sound (new URLRequest("assets/music/carol_of_the_bells.wav")),
+						new Sound (new URLRequest("assets/music/Evil-Nutcracker.wav")),
+						new Sound (new URLRequest("assets/music/nightmare_bc.wav")),
+						new Sound (new URLRequest("assets/music/Nutcracker1.wav"))];
 
 		// musicsMap = ["jingle_bells" => "assets/music/jingle_bells.ogg",
 		// 										"carol" => "assets/music/carol_of_the_bells.ogg",
