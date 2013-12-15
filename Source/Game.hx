@@ -31,10 +31,12 @@ class Game extends Sprite {
 	private var sound:SoundManager;
 	private var attacking :Bool;
 	private var bonus:Int;
+	private var main:Main;
 	
-	public function new () {
+	public function new (main:Main) {
 		
 		super ();
+		this.main = main;
 		var stage = Lib.current.stage;
 		
 		initialize ();
@@ -174,8 +176,17 @@ class Game extends Sprite {
 	 */
 	function onEnterFrame(event:Event): Void {		
 
-		if(player.speed == 88) {
+		if(player.speed == 8) {
 			// End of the game WIN
+			stage.removeEventListener(KeyboardEvent.KEY_DOWN, onPress);
+			
+			for (p in Plans) {
+				stage.removeChild(p);
+			}
+			
+			//removeChildren();
+			var outro = new Cinematic(2, stage);
+			stage.addChild(outro);
 		}
 
 		if(player.speed < 2) {

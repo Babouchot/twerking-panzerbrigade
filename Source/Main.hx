@@ -57,7 +57,6 @@ class Main extends Sprite {
         
         Background = new Bitmap (Assets.getBitmapData ("assets/background.jpg"));
         Title = new TextField ();
-        
     }
 
     private function resize (newWidth:Int, newHeight:Int):Void {
@@ -73,15 +72,21 @@ class Main extends Sprite {
         resize (stage.stageWidth, stage.stageHeight);
         
     }
+	
+	public function startOutro(game:Game) {
+		removeChild(game);
+		var outro = new Cinematic(2, stage);
+		addChild(outro);
+	}
     
     
     function onPress(event:KeyboardEvent) {
         switch(event.keyCode) {
             case Keyboard.ENTER:
-                var game = new Game();
+                var intro = new Cinematic(0,stage);
 				removeChild(Background);
                 removeChild(Title);
-				addChild(game);
+				addChild(intro);
 				stage.removeEventListener(KeyboardEvent.KEY_DOWN, onPress);
             default:
         }
