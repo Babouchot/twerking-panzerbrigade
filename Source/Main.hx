@@ -55,7 +55,7 @@ class Main extends Sprite {
     
     private function initialize ():Void {
         
-        Background = new Bitmap (Assets.getBitmapData ("assets/KickAssSanta.jpg"));
+        Background = new Bitmap (Assets.getBitmapData ("assets/KickAssSanta.png"));
         Title = new TextField ();
     }
 

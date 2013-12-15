@@ -2,6 +2,7 @@ package;
 
 import flash.events.TimerEvent;
 import flash.media.Sound;
+import flash.media.SoundTransform;
 import flash.ui.Keyboard;
 import flash.display.Sprite;
 import flash.display.Bitmap;
@@ -32,6 +33,8 @@ class Game extends Sprite {
 	private var attacking :Bool;
 	private var bonus:Int;
 	private var main:Main;
+	private var score:Int;
+	private var scoreField:TextField;
 	
 	public function new (main:Main) {
 		
@@ -98,8 +101,24 @@ class Game extends Sprite {
 		
 		speedField.embedFonts = true;
 		sprite.addChild(speedField);
-		Plans.push(sprite);
 		
+		scoreField.x = 200;
+		scoreField.width = 200;
+		scoreField.y = 12;
+		scoreField.selectable = false;
+		scoreField.defaultTextFormat = defaultFormat;
+		
+		#if !js
+		scoreField.filters = [ new BlurFilter (1.5, 1.5), new DropShadowFilter (1, 45, 0, 0.2, 5, 5) ];
+		#else
+		scoreField.y = 0;
+		scoreField.x += 90;
+		#end
+		
+		scoreField.embedFonts = true;
+		sprite.addChild(scoreField);
+
+		Plans.push(sprite);
 		/////////////////////////////////////////////////////////////
 		//////// ADDING SPRITE LAYERS TO STAGE NOTHING ELSE ////////
 		///////////////////////////////////////////////////////////
@@ -111,7 +130,10 @@ class Game extends Sprite {
 	private function initialize ():Void {
 		attacking = false;
 		bonus = 0;
+		score = 0;
 		speedField = new TextField();
+
+		scoreField = new TextField();
 		
 		time = Lib.getTimer();
 
@@ -174,9 +196,10 @@ class Game extends Sprite {
 	 * Event called before each render
 	 * @param	event
 	 */
-	function onEnterFrame(event:Event): Void {		
+	function onEnterFrame(event:Event): Void {
+		scoreField.text = Std.string(score) + " pts";
 
-		if(player.speed == 8) {
+		if(player.speed == 88) {
 			// End of the game WIN
 			stage.removeEventListener(KeyboardEvent.KEY_DOWN, onPress);
 			
@@ -219,6 +242,7 @@ class Game extends Sprite {
 			entities.push(lutin);
 			Plans[1].addChild(lutin);
 			lutin.start();
+			sound.lutins.play();
 		}
 		
 		for (entity in entities) {
@@ -228,6 +252,18 @@ class Game extends Sprite {
 					whipEffect.effect(bonus, Std.int(entity.x), Std.int(entity.y), entity.scaleX, entity.scaleY);
 					if (entity.isLutin()) {
 						bonus = entity.getType();
+						switch (bonus) {
+							case 1:
+								sound.explosion.play(0, 0, new SoundTransform(0.2));
+								score -= 50;
+							case 2:
+								sound.elec.play(0, 0, new SoundTransform(0.5));
+								score -= 50;
+							default:
+						}
+					}
+					else {
+						score += 1+bonus;
 					}
 					entities.remove(entity);
 					Plans[1].removeChild(entity);
@@ -238,6 +274,12 @@ class Game extends Sprite {
 				entities.remove(entity);
 				Plans[1].removeChild(entity);
 				player.speed -= 1;
+				if (entity.isLutin()) {
+					score += 10;
+				}
+				else {
+					score -= 10;
+				}
 			}
 		}
 		attacking = false;

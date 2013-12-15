@@ -92,6 +92,7 @@ class PlayerNoel extends Entity
 				}
 			case Keyboard.SPACE:
 				animatedWhip.restart();
+				SoundManager.get_instance().playFouet();
 			default:
 		}
     }

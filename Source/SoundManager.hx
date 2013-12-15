@@ -2,6 +2,7 @@ package;
 
 import flash.media.Sound;
 import flash.media.SoundChannel;
+import flash.media.SoundTransform;
 import flash.net.URLRequest;
 
 import flash.events.Event;
@@ -21,6 +22,8 @@ class SoundManager {
 	private var musicPaused:Bool;
 	private var musicChannel:SoundChannel;
 	private var pausePostion:Float;
+
+	private var fouetChannel:SoundChannel;
 
 	private var musicIterator:Iterator<Sound>;
 
@@ -138,7 +141,7 @@ class SoundManager {
 		if (musicIterator.hasNext()) {
 			// music = new Sound(new URLRequest(musicIterator.next()));
 			music = musicIterator.next();
-			musicChannel = music.play();
+			musicChannel = music.play(0, 0, new SoundTransform(0.2));
 			musicChannel.addEventListener(Event.SOUND_COMPLETE, onMusicLoopPlaybackComplete);
 			musicPaused = false;
 		}
@@ -150,6 +153,19 @@ class SoundManager {
 	private function onMusicLoopPlaybackComplete(event:Event) {
 		musicChannel.stop();
 		playMusicInLoop();
+	}
+
+
+	public function playFouet() : Void {
+		// if (fouetChannel == null || fouetChannel.position == 0) {
+		// 	fouetChannel = fouet.play();
+		// 	fouetChannel.addEventListener(Event.SOUND_COMPLETE, onFouetComplete);
+		// }
+	}
+
+	private function onFouetComplete (event : Event) {
+		fouetChannel.stop();
+		fouet.play();
 	}
 
 }
