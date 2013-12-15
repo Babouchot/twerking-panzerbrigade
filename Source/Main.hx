@@ -72,13 +72,6 @@ class Main extends Sprite {
         resize (stage.stageWidth, stage.stageHeight);
         
     }
-	
-	public function startOutro(game:Game) {
-		removeChild(game);
-		var outro = new Cinematic(1, stage);
-		addChild(outro);
-	}
-    
     
     function onPress(event:KeyboardEvent) {
         switch(event.keyCode) {

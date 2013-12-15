@@ -68,6 +68,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/FX.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("assets/Ground.png", __ASSET__assets_ground_png);
 		type.set ("assets/Ground.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("assets/KickAssSanta.png", __ASSET__assets_kickasssanta_png);
+		type.set ("assets/KickAssSanta.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("assets/Lutin-0-0.png", __ASSET__assets_lutin_0_0_png);
 		type.set ("assets/Lutin-0-0.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("assets/Lutin-1-0.png", __ASSET__assets_lutin_1_0_png);
@@ -216,6 +218,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/FX.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		path.set ("assets/Ground.png", "assets/Ground.png");
 		type.set ("assets/Ground.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("assets/KickAssSanta.png", "assets/KickAssSanta.png");
+		type.set ("assets/KickAssSanta.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		path.set ("assets/Lutin-0-0.png", "assets/Lutin-0-0.png");
 		type.set ("assets/Lutin-0-0.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		path.set ("assets/Lutin-1-0.png", "assets/Lutin-1-0.png");
@@ -785,6 +789,7 @@ class __ASSET__assets_end_4_png extends flash.display.BitmapData { public functi
 class __ASSET__assets_fonts_freebooterupdated_ttf extends null { }
 class __ASSET__assets_fx_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__assets_ground_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__assets_kickasssanta_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__assets_lutin_0_0_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__assets_lutin_1_0_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__assets_lutin_2_0_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
@@ -859,6 +864,7 @@ class __ASSET__assets_whipfx_2_3_png extends flash.display.BitmapData { public f
 
 
 class __ASSET__assets_fonts_freebooterupdated_ttf extends flash.text.Font { }
+
 
 
 

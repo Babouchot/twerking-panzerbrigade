@@ -44,7 +44,7 @@ class Cinematic extends Sprite
 			images[i].height = stage.height;
 		}
 
-		addChild(images[0]);
+		stage.addChild(images[0]);
 		current = 0;
 		mstage = stage;
 		stage.addEventListener (KeyboardEvent.KEY_DOWN, onPress );
