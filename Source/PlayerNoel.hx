@@ -6,6 +6,8 @@ import flash.ui.Keyboard;
 
 import openfl.Assets;
 import flash.display.Bitmap;
+
+import flash.media.SoundTransform;
 /**
  * ...
  * @author Elie Jacquelin
@@ -99,6 +101,7 @@ class PlayerNoel extends Entity
 				}
 			case Keyboard.SPACE:
 				animatedWhip.restart();
+				SoundManager.get_instance().fouet.play(0, 0, new SoundTransform(0.30));
 			default:
 		}
     }
