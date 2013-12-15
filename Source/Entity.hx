@@ -36,7 +36,6 @@ class Entity extends MyAnimation {
 		//Skin.x = XPositon;
 		//Skin.y = YPosition;
 		//initialize(xPosition, yPosition, imagePath);
-
 		super (imagePath, lastingTime, infinite, starti);
 	}
 	/**
@@ -52,27 +51,26 @@ class Entity extends MyAnimation {
 		
 	}
 	
-	public inline function WhipOverlaps(lane:Int) {
+	public function WhipOverlaps(lane:Int) {
 		if(this.lane==lane){
 			var whipX = 300;
 			if (XPosition - radius < whipX && XPosition + radius > whipX) {
 				onCollision();
 				return true;
-			};
+			}
 		}
 		return false;
 	}
 	
 	//collision between 2 entities
 	public inline function overlaps(e:Entity) {
-	  var maxDist = radius + e.radius;
-	  // classic distance formula
-	  var distSqr = (e.x-x)*(e.x-x) + (e.y-y)*(e.y-y);
-	  if( distSqr<=maxDist*maxDist )
-	   // square root computed here for performances sake
-	   if ( Math.sqrt(distSqr) <= maxDist) {
-		   onCollision();
-	   }
-
+		var maxDist = radius + e.radius;
+		// classic distance formula
+		var distSqr = (e.x-x)*(e.x-x) + (e.y-y)*(e.y-y);
+		if( distSqr<=maxDist*maxDist )
+		// square root computed here for performances sake
+		if ( Math.sqrt(distSqr) <= maxDist) {
+			onCollision();
+		}
 	}
 }
