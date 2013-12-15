@@ -69,12 +69,12 @@ class SoundManager {
 		}
 	}
 
-	// public function playMusic (name:String) :Void {
-	// 	music = new Sound (new URLRequest(musicsMap.get(name)));
-	// 	musicChannel = music.play();
-	// 	musicChannel.addEventListener(Event.SOUND_COMPLETE, onPlaybackComplete);
-	// 	musicPaused = false;
-	// }
+	public function playMusic (id:Int) :Void {
+		music = musicsArray[id];
+		musicChannel = music.play();
+		musicChannel.addEventListener(Event.SOUND_COMPLETE, onPlaybackComplete);
+		musicPaused = false;
+	}
 
 	public function play() : Void {
 		if (pausePostion != 0) {
