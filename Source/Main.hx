@@ -89,8 +89,8 @@ class Main extends Sprite {
                 stage.removeEventListener(KeyboardEvent.KEY_DOWN, onPress);
                 stage.removeChild(Background);
                 stage.removeChild(Title);
-                var intro = new Cinematic(0,stage);
-				addChild(intro);
+                var intro = new Cinematic(0, stage);
+				stage.addChild(intro);
             default:
         }
         
