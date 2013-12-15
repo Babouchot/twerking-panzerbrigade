@@ -15,11 +15,11 @@ import openfl.Assets;
 
 class MyAnimation extends Sprite {
 
-	private var images:Array<Bitmap>;
-	private var lastingTime:Int;
+	public var images:Array<Bitmap>;
+	public var lastingTime:Int;
 	private var lastTime:Int;
 	private var actualImage:Int;
-	private var running:Bool;
+	public var running:Bool;
 	private var inf:Bool;
 	private var pause:Bool;
 	private var first:Bool;
@@ -52,6 +52,7 @@ class MyAnimation extends Sprite {
 
 	public function restart(): Void {
 		pause = false;
+		running = true;
 	}
 
 	public function update(): Void {

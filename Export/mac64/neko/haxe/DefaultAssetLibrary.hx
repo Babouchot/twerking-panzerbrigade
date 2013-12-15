@@ -44,6 +44,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/Boom-1-0.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("assets/Boom-2-0.png", __ASSET__assets_boom_2_0_png);
 		type.set ("assets/Boom-2-0.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		className.set ("assets/Cadaver.png", __ASSET__assets_cadaver_png);
+		type.set ("assets/Cadaver.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("assets/ChildMale0-0-0.png", __ASSET__assets_childmale0_0_0_png);
 		type.set ("assets/ChildMale0-0-0.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		className.set ("assets/ChildMale0-1-0.png", __ASSET__assets_childmale0_1_0_png);
@@ -150,6 +152,8 @@ class DefaultAssetLibrary extends AssetLibrary {
 		type.set ("assets/Boom-1-0.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		path.set ("assets/Boom-2-0.png", "assets/Boom-2-0.png");
 		type.set ("assets/Boom-2-0.png", Reflect.field (AssetType, "image".toUpperCase ()));
+		path.set ("assets/Cadaver.png", "assets/Cadaver.png");
+		type.set ("assets/Cadaver.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		path.set ("assets/ChildMale0-0-0.png", "assets/ChildMale0-0-0.png");
 		type.set ("assets/ChildMale0-0-0.png", Reflect.field (AssetType, "image".toUpperCase ()));
 		path.set ("assets/ChildMale0-1-0.png", "assets/ChildMale0-1-0.png");
@@ -689,6 +693,7 @@ class __ASSET__assets_background_jpg extends flash.display.BitmapData { public f
 class __ASSET__assets_boom_0_0_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__assets_boom_1_0_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__assets_boom_2_0_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
+class __ASSET__assets_cadaver_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__assets_childmale0_0_0_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__assets_childmale0_1_0_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
 class __ASSET__assets_childmale0_2_0_png extends flash.display.BitmapData { public function new () { super (0, 0); } }
@@ -739,6 +744,7 @@ class __ASSET__assets_whipfx_2_3_png extends flash.display.BitmapData { public f
 
 
 #elseif html5
+
 
 
 
