@@ -1,5 +1,6 @@
 package ;
 
+import flash.display.DisplayObjectContainer;
 import flash.display.Stage;
 import flash.events.KeyboardEvent;
 import flash.ui.Keyboard;
@@ -69,7 +70,7 @@ class PlayerNoel extends Entity
 		animatedWhip.scaleX = 0.3;
 		animatedWhip.scaleY = 0.3;
 
-		stage.addChild(animatedWhip);
+		addChild(animatedWhip);
 		animatedWhip.start();
 		super(15, stage.stageHeight - 50, stage, array, 140, true, false);
 		scaleX = 0.3;
