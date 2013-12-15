@@ -15,8 +15,8 @@ import openfl.Assets;
 
 class Game extends Sprite {
 
+	private var Plans:Array<Sprite>;
 	private var Backgrounds:Array<AnimatedBackground>;
-    private var Title:TextField;
 	private var speedField:TextField;
 	private var pn:Sprite;
 	private var Bam:Sound;
@@ -47,38 +47,53 @@ class Game extends Sprite {
 
 	private function construct ():Void {
 		var stage = Lib.current.stage;
+		var sprite = new Sprite();
 		
-        Title.x = stage.stageWidth/2;
-        Title.width = 200;
-        Title.y = 12;
-        Title.selectable = false;
-        Title.text = "Ceci est le titre de Game";
+		// bg
+		for (b in Backgrounds) b.addAsChild(sprite);
+		Plans.push(sprite);
 		
-		for (b in Backgrounds) b.addAsChild(stage);
-		
+		// Children
+		sprite = new Sprite();
 		entities = new Array<Child>();
+		Plans.push(sprite);
+		
+		// Santa
+		sprite = new Sprite();
 		player = new PlayerNoel(stage);
-
-        stage.addChild (Title);
+		sprite.addChild (whipEffect);
+        sprite.addChild(player);
+        player.start();
+		Plans.push(sprite);
+		
+		// Speedfield
+		sprite = new Sprite();
 		speedField.x = stage.stageWidth/2;
         speedField.width = 200;
         speedField.y = 100;
         speedField.selectable = false;
         speedField.text = Std.string(player.speed);
-		stage.addChild(speedField);
-        stage.addChild (whipEffect);
-        stage.addChild(player);
-        player.start();
+		sprite.addChild(speedField);
+		Plans.push(sprite);
+		
+		
+		
+		
+		/////////////////////////////////////////////////////////////
+		//////// ADDING SPRITE LAYERS TO STAGE NOTHING ELSE ////////
+		///////////////////////////////////////////////////////////
+		for (p in Plans) stage.addChild(p);
+		
 	}
 	
 	
 	private function initialize ():Void {
 		attacking = false;
-		Title = new TextField ();
 		speedField = new TextField();
 		
 		time = Lib.getTimer();
 
+		// Whip Effects
 		var array:Array<String> = new Array<String>();
 		array.push("assets/WhipFX-0-1.png");
 		array.push("assets/WhipFX-1-1.png");
@@ -95,26 +110,22 @@ class Game extends Sprite {
 		array3.push("assets/WhipFX-2-3.png");
 
 		whipEffect = new Whip (array, array2, array3);
-
-		time = 	Lib.getTimer();
 		
 		// Background
 		Backgrounds = new Array<AnimatedBackground>();
 		
 		var a = new AnimatedBackground(0, 500, "assets/Sky.png", .42, 0);
 		Backgrounds.push(a);
-		
 		a = new AnimatedBackground(0, 100, "assets/Mountains.png", .42, 0);
 		Backgrounds.push(a);
-		
 		a = new AnimatedBackground(0, 50, "assets/Trees.png", .42, 0);
 		Backgrounds.push(a);
-		
 		a = new AnimatedBackground(0, 10, "assets/Village.png", .42, 0);
 		Backgrounds.push(a);
-		
 		a = new AnimatedBackground(a.getHeight(), 10, "assets/Ground.png", .58, .42 /* Depends on Image's Heigth*/);
 		Backgrounds.push(a);
+		
+		Plans = new Array<Sprite>();
 	}
 
 	private function resize (newWidth:Int, newHeight:Int):Void {
