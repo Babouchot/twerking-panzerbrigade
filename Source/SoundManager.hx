@@ -21,9 +21,11 @@ class SoundManager {
 	private var musicPaused:Bool;
 	private var musicChannel:SoundChannel;
 	private var pausePostion:Float;
-	private var musicIterator:Iterator<String>;
 
-	private var musicsMap:Map<String, String>;
+	private var musicIterator:Iterator<Sound>;
+
+	// private var musicsMap:Map<String, String>;
+	private var musicsArray:Array<Sound>;
 
 	private var loopedSounds:Map<String, SoundChannel>;
 
@@ -41,11 +43,17 @@ class SoundManager {
 		lutins = new Sound(new URLRequest("assets/sound/lutins.ogg"));
 
 
-		musicsMap = ["jingle_bells" => "assets/music/jingle_bells.ogg",
-												"carol" => "assets/music/carol_of_the_bells.ogg",
-												"e_nutcracker" => "assets/music/Evil-Nutcracker.ogg",
-												"nightmare_bc" => "assets/music/nightmare_bc.ogg",
-												"nutcracker" => "assets/music/Nutcracker1.ogg"];
+		musicsArray = [new Sound (new URLRequest("assets/music/jingle_bells.ogg")),
+						new Sound (new URLRequest("assets/music/carol_of_the_bells.ogg")),
+						new Sound (new URLRequest("assets/music/Evil-Nutcracker.ogg")),
+						new Sound (new URLRequest("assets/music/nightmare_bc.ogg")),
+						new Sound (new URLRequest("assets/music/Nutcracker1.ogg"))];
+
+		// musicsMap = ["jingle_bells" => "assets/music/jingle_bells.ogg",
+		// 										"carol" => "assets/music/carol_of_the_bells.ogg",
+		// 										"e_nutcracker" => "assets/music/Evil-Nutcracker.ogg",
+		// 										"nightmare_bc" => "assets/music/nightmare_bc.ogg",
+		// 										"nutcracker" => "assets/music/Nutcracker1.ogg"];
 
 		musicPaused = true;
 		loopedSounds = new Map <String, SoundChannel>();
@@ -61,12 +69,12 @@ class SoundManager {
 		}
 	}
 
-	public function playMusic (name:String) :Void {
-		music = new Sound (new URLRequest(musicsMap.get(name)));
-		musicChannel = music.play();
-		musicChannel.addEventListener(Event.SOUND_COMPLETE, onPlaybackComplete);
-		musicPaused = false;
-	}
+	// public function playMusic (name:String) :Void {
+	// 	music = new Sound (new URLRequest(musicsMap.get(name)));
+	// 	musicChannel = music.play();
+	// 	musicChannel.addEventListener(Event.SOUND_COMPLETE, onPlaybackComplete);
+	// 	musicPaused = false;
+	// }
 
 	public function play() : Void {
 		if (pausePostion != 0) {
@@ -121,20 +129,27 @@ class SoundManager {
 	}
 
 	public function gameMusicLoop () {
-		musicIterator = musicsMap.iterator();
-		playMusicInLoop(null);
+		// musicIterator = musicsMap.iterator();
+		musicIterator = musicsArray.iterator();
+		playMusicInLoop();
 	}
 
-	private function playMusicInLoop(event:Event) {
+	private function playMusicInLoop() {
 		if (musicIterator.hasNext()) {
-			music = new Sound(new URLRequest(musicIterator.next()));
+			// music = new Sound(new URLRequest(musicIterator.next()));
+			music = musicIterator.next();
 			musicChannel = music.play();
-			musicChannel.addEventListener(Event.SOUND_COMPLETE, playMusicInLoop);
+			musicChannel.addEventListener(Event.SOUND_COMPLETE, onMusicLoopPlaybackComplete);
 			musicPaused = false;
 		}
 		else {
 			gameMusicLoop();
 		}
+	}
+
+	private function onMusicLoopPlaybackComplete(event:Event) {
+		musicChannel.stop();
+		playMusicInLoop();
 	}
 
 }
