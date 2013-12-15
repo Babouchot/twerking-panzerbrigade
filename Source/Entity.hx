@@ -9,6 +9,10 @@ import openfl.Assets;
 
 class Entity extends MyAnimation {
 
+	//public var lane(default, set):Int; // Lane number the character is in
+	public var speed:Int;
+
+
 	private var XPosition(default,set):Int;
 	private var YPosition(default, set):Int;
 	private var radius:Float;
@@ -79,5 +83,13 @@ class Entity extends MyAnimation {
 			return true;
 		}
 		return false;
+	}
+
+	public function isLutin () : Bool{
+		return false;
+	}
+
+	public function getType () : Int {
+		return -1;
 	}
 }
