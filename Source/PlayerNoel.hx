@@ -13,13 +13,13 @@ import flash.display.Bitmap;
 class PlayerNoel extends Entity
 {
 
-	private var lane(default, set):Int; // Lane number the character is in
+	//public var lane(default, set):Int; // Lane number the character is in
 	public var speed:Int;
 	private var time_window:Int = 50; //the number of frames to increase the speed
 	private var current_frame:Int;
 	private var animatedWhip:MyAnimation;
 
-	function set_lane(value:Int):Int {
+	override function set_lane(value:Int):Int {
 		switch(value) {
 			case 0:
 				YPosition = 300;

@@ -22,9 +22,10 @@ class Game extends Sprite {
 	private var Bam:Sound;
 	private var time:Int;
 	private var whipEffect:MyAnimation;
-	private var entities	: Array<Entity>;
+	private static var entities	: Array<Entity>;
 	private var player : PlayerNoel;
 	private var sound:SoundManager;
+	private var attacking :Bool;
 	
 	public function new () {
 		
@@ -79,7 +80,7 @@ class Game extends Sprite {
 	
 	
 	private function initialize ():Void {
-		
+		attacking = false;
 		Title = new TextField ();
 		speedField = new TextField();
 		
@@ -127,12 +128,9 @@ class Game extends Sprite {
 			entities[i].onPress(event);
 		}
 
-		switch(event.keyCode) {
-			case Keyboard.SPACE:
-				sound.fouet.play();
-			default:
+		if (event.keyCode == Keyboard.SPACE) {
+			attacking = true;
 		}
-		
 	}
 	
 	/**
@@ -163,8 +161,28 @@ class Game extends Sprite {
 			removeChild(entities[0]);
 			entities.splice(0, 1);
 		}
-
-		for (b in Backgrounds) b.move(delta, player.speed);
+		
+		//Whip attack
+		if (attacking) {
+			for (i in 1...entities.length) {
+				var entity = entities[i];
+				if (entity.WhipOverlaps(player.lane)) {
+					//remove the child from the stage in a bloody way
+					entities.remove(entity);
+					stage.removeChild(entity);
+					break;
+				}
+			}
+			attacking = false;
+		}
+		for (b in Backgrounds) b.move(delta, 15/* TODO SPEED SANTA CLAUS*/);
 	}
+	
+	/*
+	public static function destroyChild(entity:Entity) {
+		entities.remove(entity);
+		
+	}
+	*/
 	
 }
