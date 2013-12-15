@@ -55,7 +55,7 @@ class Main extends Sprite {
     
     private function initialize ():Void {
         
-        Background = new Bitmap (Assets.getBitmapData ("assets/background.jpg"));
+        Background = new Bitmap (Assets.getBitmapData ("assets/KickAssSanta.jpg"));
         Title = new TextField ();
     }
 
@@ -75,7 +75,7 @@ class Main extends Sprite {
 	
 	public function startOutro(game:Game) {
 		removeChild(game);
-		var outro = new Cinematic(2, stage);
+		var outro = new Cinematic(1, stage);
 		addChild(outro);
 	}
     
@@ -83,11 +83,11 @@ class Main extends Sprite {
     function onPress(event:KeyboardEvent) {
         switch(event.keyCode) {
             case Keyboard.ENTER:
-                var intro = new Cinematic(0,stage);
-				removeChild(Background);
+                stage.removeEventListener(KeyboardEvent.KEY_DOWN, onPress);
+                removeChild(Background);
                 removeChild(Title);
+                var intro = new Cinematic(0,stage);
 				addChild(intro);
-				stage.removeEventListener(KeyboardEvent.KEY_DOWN, onPress);
             default:
         }
         

@@ -185,7 +185,7 @@ class Game extends Sprite {
 			}
 			
 			//removeChildren();
-			var outro = new Cinematic(2, stage);
+			var outro = new Cinematic(1, stage);
 			stage.addChild(outro);
 		}
 
