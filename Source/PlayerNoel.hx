@@ -15,8 +15,6 @@ import flash.media.SoundTransform;
 class PlayerNoel extends Entity
 {
 
-	//public var lane(default, set):Int; // Lane number the character is in
-	public var speed:Int;
 	private var time_window:Int = 50; //the number of frames to increase the speed
 	private var current_frame:Int;
 	public var animatedWhip:MyAnimation;

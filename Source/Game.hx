@@ -22,10 +22,11 @@ class Game extends Sprite {
 	private var Bam:Sound;
 	private var time:Int;
 	private var whipEffect:Whip;
-	private static var entities	: Array<Child>;
+	private static var entities	: Array<Entity>;
 	private var player : PlayerNoel;
 	private var sound:SoundManager;
 	private var attacking :Bool;
+	private var bonus:Int;
 	
 	public function new () {
 		
@@ -56,7 +57,7 @@ class Game extends Sprite {
 		
 		for (b in Backgrounds) b.addAsChild(stage);
 		
-		entities = new Array<Child>();
+		entities = new Array<Entity>();
 		player = new PlayerNoel(stage);
 
         stage.addChild (Title);
@@ -74,6 +75,7 @@ class Game extends Sprite {
 	
 	private function initialize ():Void {
 		attacking = false;
+		bonus = 0;
 		Title = new TextField ();
 		speedField = new TextField();
 		
@@ -161,13 +163,23 @@ class Game extends Sprite {
 				entities.remove(a);
 			}
 		}
+
+		if (Std.random(100) < 1) {
+			var lutin = new Lutin(stage, Std.random(3));
+			entities.push(lutin);
+			stage.addChild(lutin);
+			lutin.start();
+		}
 		
 		//Whip attack
 		if (attacking) {
 			for (entity in entities) {
 				if (entity.WhipOverlaps(player.lane, Std.int(player.animatedWhip.images[0].bitmapData.width * player.scaleX))) {
 					//remove the child from the stage in a bloody way
-					whipEffect.effect(0, Std.int(entity.x), Std.int(entity.y), entity.scaleX, entity.scaleY);
+					whipEffect.effect(bonus, Std.int(entity.x), Std.int(entity.y), entity.scaleX, entity.scaleY);
+					if (entity.isLutin()) {
+						bonus = entity.getType();
+					}
 					entities.remove(entity);
 					stage.removeChild(entity);
 				}
@@ -183,4 +195,5 @@ class Game extends Sprite {
 		player.update();
 		whipEffect.update();
 	}
+
 }

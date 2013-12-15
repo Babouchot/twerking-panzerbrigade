@@ -6,9 +6,6 @@ import flash.ui.Keyboard;
 
 class Child extends Entity {
 
-    //public var lane(default, set):Int; // Lane number the character is in
-	public var speed:Int;
-
 
 	public function new (stage:Stage, lane:Int) {
 		var array:Array<String> = new Array<String>();
