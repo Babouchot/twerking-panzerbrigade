@@ -35,6 +35,7 @@ class Game extends Sprite {
 	private var main:Main;
 	private var score:Int;
 	private var scoreField:TextField;
+	private var mobTimer:Int;
 	
 	public function new (main:Main) {
 		
@@ -44,6 +45,8 @@ class Game extends Sprite {
 		
 		initialize ();
 		construct ();
+
+		mobTimer = Lib.getTimer();
 		
 		sound = SoundManager.get_instance();
 		sound.gameMusicLoop();
@@ -102,7 +105,7 @@ class Game extends Sprite {
 		speedField.embedFonts = true;
 		sprite.addChild(speedField);
 		
-		scoreField.x = 200;
+		scoreField.x = 2;
 		scoreField.width = 200;
 		scoreField.y = 12;
 		scoreField.selectable = false;
@@ -212,8 +215,8 @@ class Game extends Sprite {
 			stage.addChild(outro);
 		}
 
-		if(player.speed < 2) {
-			player.speed = 2;
+		if(player.speed < 10) {
+			player.speed = 10;
 		}
 
 		var delta = Lib.getTimer() - time;
@@ -223,11 +226,14 @@ class Game extends Sprite {
 
 		whipEffect.update();
 		//ChildGenerator
-		if (Std.random(90) % 5 == 0) {
-			var child = new Child(stage, Std.random(3));
-			entities.push(child);
-			Plans[1].addChild(child);
-			child.start();
+		if(Lib.getTimer() - mobTimer > 600 * (10.1/player.speed)) {
+			if (Math.random() < (1-1/player.speed)) {
+				var child = new Child(stage, Std.random(3));
+				entities.push(child);
+				Plans[1].addChild(child);
+				child.start();
+			}
+			mobTimer = Lib.getTimer();
 		}
 		//Remove the child off the screen
 		for(a in entities) {
