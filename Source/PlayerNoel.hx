@@ -81,6 +81,7 @@ class PlayerNoel extends Entity
 	
 	override function update() : Void{
 		animatedWhip.update();
+		lastingTime = Std.int(140 - speed/3);
 		super.update();
 		current_frame++;
 		if (current_frame >= time_window) {
@@ -101,7 +102,8 @@ class PlayerNoel extends Entity
 				}
 			case Keyboard.SPACE:
 				animatedWhip.restart();
-				SoundManager.get_instance().fouet.play(0, 0, new SoundTransform(0.30));
+				if(!animatedWhip.running)
+					SoundManager.get_instance().fouet.play(0, 0, new SoundTransform(0.30));
 			default:
 		}
     }
