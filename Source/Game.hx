@@ -158,7 +158,7 @@ class Game extends Sprite {
 			entities.splice(0, 1);
 		}
 
-		for (b in Backgrounds) b.move(delta, 15/* TODO SPEED SANTA CLAUS*/);
+		for (b in Backgrounds) b.move(delta, player.speed);
 	}
 	
 }
