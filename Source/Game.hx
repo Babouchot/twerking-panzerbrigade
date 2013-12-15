@@ -21,8 +21,8 @@ class Game extends Sprite {
 	private var pn:Sprite;
 	private var Bam:Sound;
 	private var time:Int;
-	private var whipEffect:MyAnimation;
-	private static var entities	: Array<Entity>;
+	private var whipEffect:Whip;
+	private static var entities	: Array<Child>;
 	private var player : PlayerNoel;
 	private var sound:SoundManager;
 	private var attacking :Bool;
@@ -56,14 +56,8 @@ class Game extends Sprite {
 		
 		for (b in Backgrounds) b.addAsChild(stage);
 		
-		entities = new Array<Entity>();
+		entities = new Array<Child>();
 		player = new PlayerNoel(stage);
-		entities.push(new Child(stage,0));
-		//draw all the entities
-		for (i in 0...entities.length) {
-			addChild(entities[i]);
-			entities[i].start();
-		}
 
         stage.addChild (Title);
 		speedField.x = stage.stageWidth/2;
@@ -74,7 +68,6 @@ class Game extends Sprite {
 		stage.addChild(speedField);
         stage.addChild (whipEffect);
         stage.addChild(player);
-        entities.push(player);
         player.start();
 	}
 	
@@ -91,7 +84,17 @@ class Game extends Sprite {
 		array.push("assets/WhipFX-1-1.png");
 		array.push("assets/WhipFX-2-1.png");
 
-		whipEffect = new MyAnimation (array, 400, false, false);
+		var array2:Array<String> = new Array<String>();
+		array2.push("assets/WhipFX-0-2.png");
+		array2.push("assets/WhipFX-1-2.png");
+		array2.push("assets/WhipFX-2-2.png");
+
+		var array3:Array<String> = new Array<String>();
+		array3.push("assets/WhipFX-0-3.png");
+		array3.push("assets/WhipFX-1-3.png");
+		array3.push("assets/WhipFX-2-3.png");
+
+		whipEffect = new Whip (array, array2, array3);
 
 		time = 	Lib.getTimer();
 		
@@ -124,9 +127,7 @@ class Game extends Sprite {
 
 	private function onPress(event:KeyboardEvent):Void {
 
-		for (i in 0...entities.length) {
-			entities[i].onPress(event);
-		}
+		player.onPress(event);
 
 		if (event.keyCode == Keyboard.SPACE) {
 			attacking = true;
@@ -140,12 +141,9 @@ class Game extends Sprite {
 	 */
 	function onEnterFrame(event:Event): Void {		
 
-		
 		var delta = Lib.getTimer() - time;
 		time = Lib.getTimer();
-		for (entity in entities) {
-			entity.update(); //update every entity in the level in each frame
-		}
+		
 		speedField.text = Std.string(player.speed); //update the speed textfield with the new player speed 
 
 		whipEffect.update();
@@ -157,32 +155,32 @@ class Game extends Sprite {
 			child.start();
 		}
 		//Remove the child off the screen
-		if (entities[0].x < -100) {
-			removeChild(entities[0]);
-			entities.splice(0, 1);
+		for(a in entities) {
+			if (a.x < -100) {
+				removeChild(a);
+				entities.remove(a);
+			}
 		}
 		
 		//Whip attack
 		if (attacking) {
-			for (i in 1...entities.length) {
-				var entity = entities[i];
-				if (entity.WhipOverlaps(player.lane)) {
+			for (entity in entities) {
+				if (entity.WhipOverlaps(player.lane, Std.int(player.animatedWhip.images[0].bitmapData.width * player.scaleX))) {
 					//remove the child from the stage in a bloody way
+					whipEffect.effect(0, Std.int(entity.x), Std.int(entity.y), entity.scaleX, entity.scaleY);
 					entities.remove(entity);
 					stage.removeChild(entity);
-					break;
 				}
 			}
 			attacking = false;
 		}
-		for (b in Backgrounds) b.move(delta, 15/* TODO SPEED SANTA CLAUS*/);
+		for (b in Backgrounds) b.move(delta, player.speed);
+
+		for (entity in entities) {
+			entity.update(); //update every entity in the level in each frame
+			entity.speed = Std.int(0.015 * player.speed * delta);
+		}
+		player.update();
+		whipEffect.update();
 	}
-	
-	/*
-	public static function destroyChild(entity:Entity) {
-		entities.remove(entity);
-		
-	}
-	*/
-	
 }

@@ -37,7 +37,6 @@ class Child extends Entity {
 				scaleY = 0.25;
 			case 2 :
 				YPosition = 275;
-				
 				scaleX = 0.2;
 				scaleY = 0.2;
 
