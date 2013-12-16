@@ -90,7 +90,7 @@ class Main extends Sprite {
                 stage.removeChild(Background);
                 stage.removeChild(Title);
                 var intro = new Cinematic(0, stage);
-				addChild(intro);
+				stage.addChild(intro);
             default:
         }
         
