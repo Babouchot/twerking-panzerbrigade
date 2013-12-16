@@ -7,6 +7,8 @@ import flash.net.URLRequest;
 
 import flash.events.Event;
 
+import openfl.Assets;
+
 class SoundManager {
 	
 	// Environment sounds
@@ -38,15 +40,15 @@ class SoundManager {
 
 
 	public function new () {
-		elec = new Sound(new URLRequest("assets/sound/elec.wav"));
-		explosion = new Sound(new URLRequest("assets/sound/explosion.wav"));
-		fouet = new Sound(new URLRequest("assets/sound/fouet.wav"));
-		grelots = new Sound(new URLRequest("assets/sound/grelots.wav"));
-		grelots_debut = new Sound(new URLRequest("assets/sound/grelots_beginning.wav"));
-		lutins = new Sound(new URLRequest("assets/sound/lutins.wav"));
+		elec = Assets.getSound("elec");
+		explosion = Assets.getSound("explosion");
+		fouet = Assets.getSound("fouet");
+		grelots = Assets.getSound("grelots");
+		grelots_debut = Assets.getSound("grelots_beginning");
+		lutins = Assets.getSound("lutins");
 
 
-		musicsArray = [new Sound (new URLRequest("assets/music/nightmare_bc.mp3"))];
+		musicsArray = [Assets.getSound("nightmare_bc")];
 
 		// musicsMap = ["jingle_bells" => "assets/music/jingle_bells.ogg",
 		// 										"carol" => "assets/music/carol_of_the_bells.ogg",
