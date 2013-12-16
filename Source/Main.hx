@@ -59,7 +59,7 @@ class Main extends Sprite {
     }
 
     private function construct ():Void {
-        addChild (Background);
+        stage.addChild (Background);
     }
     
     
@@ -87,10 +87,10 @@ class Main extends Sprite {
         switch(event.keyCode) {
             case Keyboard.ENTER:
                 stage.removeEventListener(KeyboardEvent.KEY_DOWN, onPress);
-                removeChild(Background);
+                stage.removeChild(Background);
                 stage.removeChild(Title);
                 var intro = new Cinematic(0, stage);
-				stage.addChild(intro);
+				addChild(intro);
             default:
         }
         
