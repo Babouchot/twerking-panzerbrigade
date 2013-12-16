@@ -46,7 +46,7 @@ class SoundManager {
 		lutins = new Sound(new URLRequest("assets/sound/lutins.wav"));
 
 
-		musicsArray = [new Sound (new URLRequest("assets/music/nightmare_bc.wav"))];
+		musicsArray = [new Sound (new URLRequest("assets/music/nightmare_bc.mp3"))];
 
 		// musicsMap = ["jingle_bells" => "assets/music/jingle_bells.ogg",
 		// 										"carol" => "assets/music/carol_of_the_bells.ogg",
