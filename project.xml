@@ -10,5 +10,25 @@
 	<haxelib name="spritesheet" />
 	
 	<assets path="Assets" rename="assets"/>
+
+	<assets path="Assets/sound" rename="sound" if="web">
+		<sound path="elec.mp3" id="elec" />
+		<sound path="explosion.mp3" id="explosion" />
+		<sound path="fouet.mp3" id="fouet" />
+		<sound path="grelots_beginning.mp3" id="grelots_beginning" />
+		<sound path="grelots.mp3" id="grelots" />
+		<sound path="lutins.mp3" id="lutins" />
+		<music path="nightmare_bc.mp3" id="nightmare_bc" />
+	</assets>
+	
+	<assets path="Assets/sound" rename="sound" unless="web">
+		<sound path="elec.wav" id="elec" />
+		<sound path="explosion.wav" id="explosion" />
+		<sound path="fouet.wav" id="fouet" />
+		<sound path="grelots_beginning.wav" id="grelots_beginning" />
+		<sound path="grelots.wav" id="grelots" />
+		<sound path="lutins.wav" id="lutins" />
+		<music path="nightmare_bc.ogg" id="nightmare_bc" />
+	</assets>
 	
 </project>
