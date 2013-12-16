@@ -22,12 +22,12 @@
 	</assets>
 	
 	<assets path="Assets/sound" rename="sound" unless="web">
-		<sound path="elec.wav" id="elec" />
-		<sound path="explosion.wav" id="explosion" />
-		<sound path="fouet.wav" id="fouet" />
-		<sound path="grelots_beginning.wav" id="grelots_beginning" />
-		<sound path="grelots.wav" id="grelots" />
-		<sound path="lutins.wav" id="lutins" />
+		<sound path="elec.ogg" id="elec" />
+		<sound path="explosion.ogg" id="explosion" />
+		<sound path="fouet.ogg" id="fouet" />
+		<sound path="grelots_beginning.ogg" id="grelots_beginning" />
+		<sound path="grelots.ogg" id="grelots" />
+		<sound path="lutins.ogg" id="lutins" />
 		<music path="nightmare_bc.ogg" id="nightmare_bc" />
 	</assets>
 	
